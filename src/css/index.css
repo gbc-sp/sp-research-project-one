@@ -1,0 +1,563 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400|Poppins:300,700');
+
+:root {
+  /* Global variables */
+  --color-font: #060606;
+  --color-heavy: #333;
+  --color-light: #fff;
+  --color-bg: #F9F9FC;
+  --color-impact: #527AFF;
+  --color-highlight: #7AEB7D;
+  --color-impact-translucent: rgba(82, 122, 255, 0.7);
+  --color-alert-translucent: rgba(255, 0, 0, 0.7);
+
+  /* skill colours */
+  --color-smarter-learning: #EC4824;
+  --color-strategic-thinking: #004568;
+  --color-selfwork: #42C2CF;
+  --color-teamwork: #009147;
+  --color-networking: #FCC189;
+  --color-design-innovation: #C2DCAA;
+  --color-info-management: #F2DE32;
+
+  --heading-font: "Poppins", "Helvetica", sans-serif;
+  --content-font: "Nunito", "Helvetica", sans-serif;
+
+  --text-line: 1.8;
+  --spacing: 1em;
+  --tile-padding: 2em;
+  --corners: 1em;
+  --line: 0.25rem;
+
+  --shadow: 0 3px 26px rgba(192,182,209,0.25);
+  --shadow-white: 0 13px 20px 3px rgba(255, 255, 255, 0.9);
+
+  --breakpoint: 50em;
+}
+
+html {
+  font: 400 0.9em/var(--text-line) var(--content-font);
+}
+
+html, body, .root, .app {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-font);
+  padding: 0 var(--spacing);
+  padding-bottom: calc(3.5em + var(--spacing) + var(--spacing));
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0.8em 0;
+  font-family: var(--heading-font);
+}
+h3 + h1, h3 + h2 {
+  margin-top: 0;
+}
+
+h1 {
+  font: 700 1.6em/1 var(--heading-font);
+}
+h2 {
+  font: 700 1.1em/1 var(--heading-font);
+  line-height: 1.3;
+}
+h3 {
+  font: 300 0.9em/1 var(--heading-font);
+}
+h4 {
+  font: 700 0.75em/1 var(--heading-font);
+}
+h5 {
+  font: 300 0.6em/1 var(--content-font);
+}
+h6 {
+  /* Aaron, what is this for? */
+  font: 700 0.5em/1 var(--content-font);
+}
+
+p {
+  margin: var(--spacing) 0;
+}
+
+a {
+  color: var(--color-highlight);
+  text-decoration: none;
+}
+a:focus, a:hover {
+  text-decoration: underline;
+}
+
+/****************** GENERAL UTILITY ******************/
+
+.hidden {
+  display: none;
+}
+
+.center {
+  text-align: center;
+}
+
+/****************** GRID LAYOUTS ******************/
+
+.layout {
+  display: grid;
+  grid-gap: var(--spacing);
+  min-height: 100%;
+  padding: var(--spacing) 0;
+  margin-bottom: 5.5em;  /* assumes the bottom bar is always the same height - revisit */
+}
+
+.no-toolbar, .no-toolbar .layout { /*I changed the syntax to this.. doesn't need media query anymore either */
+  margin: auto;
+}
+body.no-toolbar {
+  padding-bottom: 0;
+}
+
+.layout.dashboard {
+   grid-template-rows:1fr 1fr;
+}
+
+.layout.competency {
+  grid-template-rows: auto auto 1fr;
+  /* grid-template-rows: calc(var(--tile-padding) * 2 + 2em) auto calc(var(--tile-padding) * 2 + 1em); */
+}
+
+.bio-grid {
+  display: grid;
+  grid-template-columns: 4em auto;
+  grid-gap: var(--spacing);
+}
+.bio-span {
+  grid-column: 1 / span 2;
+}
+.bio-image img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+/****************** LAYOUT COMPONENTS ******************/
+
+.tile {
+  background-color: var(--color-light);
+  border-radius: var(--corners);
+  padding: var(--tile-padding);
+  box-shadow: var(--shadow);
+}
+  .tile :first-child {
+    margin-top: 0;
+  }
+  .tile :last-child {
+    margin-bottom: 0;
+  }
+
+.blank {
+  background-color: transparent !important;
+  box-shadow: none;
+}
+
+.scrollable-row {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  margin: 0 calc(-1 * var(--spacing));
+  padding: 0 var(--spacing);
+}
+/* creates problems */
+/* .scrollable-row .tile:first-child {
+  margin-left: 0;
+} */
+.scrollable-row .tile {
+  flex: 0 0 auto;
+  width: 10em;
+  text-align: center;
+  margin: 1em 0.5em;
+  position: relative;
+}
+
+.fixed-width-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.fixed-width-row .tile {
+  padding-bottom: var(--spacing);
+  position: relative;
+  padding: var(--spacing) calc(0.5 * var(--spacing));
+  width: 20%;
+}
+
+.tile.selected {
+  background: var(--color-impact);
+  transform: scale(0.95);
+  color: white;
+}
+
+.tile.selected img {
+  /* fill: white; */
+  filter: invert(1);
+}
+
+.tile.module {
+  padding: var(--tile-padding) 1em;
+}
+
+.module img {
+  width: 5em;
+}
+
+.pop-up {
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999999;
+  background: rgba(0,0,0,0.5);
+  display: none;
+}
+.close-pop-up {
+  top: 1em;
+  line-height: 0.6em;
+  right: 1em;
+  position: absolute;
+  font-size: 1.4em;
+  padding: 0.4em;
+}
+.pop-up .tile {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  max-height: 100%;
+  overflow-y: scroll;
+  padding: 3em;
+}
+
+/****************** FIXED TOOLBAR ******************/
+
+.toolbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+  padding: var(--spacing);
+  line-height: 1;
+  background: linear-gradient(transparent, transparent, rgba(255,255,255,0.7));
+}
+  .tools {
+    background-color: var(--color-impact);
+    color: var(--color-light);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    text-align: center;
+    grid-column-gap: var(--spacing);
+    padding: 0.5em 2em;
+    border-radius: 1.5em;
+  }
+    .tool {
+      width: 3.5em;
+      height: 3.5em;
+      padding: 0.7em;
+      border-radius: var(--corners);
+      cursor: pointer;
+      background-color: rgba(255,255,255,0.1);
+    }
+      .tool a {
+        display: block;
+      }
+      .tool img {
+        filter: invert(1);
+      }
+      .tool:hover {
+        background-color: rgba(255,255,255,0.2);
+      }
+
+
+/****************** STEP COMPONENT ******************/
+
+.steps {
+  align-self: end;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+  .step {
+    display: block;
+    width: 1em;
+    height: 1em;
+    background-color: transparent;
+    border: var(--line) solid var(--color-heavy);
+    border-radius: 50%;
+    margin-right: var(--spacing);
+    cursor: pointer;
+  }
+    .step:last-child {
+      margin-right: 0;
+    }
+    .step.active {
+      background-color: var(--color-heavy);
+    }
+    .step:hover {
+      border-color: var(--color-impact);
+      background-color: var(--color-impact);
+    }
+
+
+/****************** FORM ELEMENTS ******************/
+
+input, select, textarea {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: var(--corners);
+  background-color: var(--color-bg);
+  color: var(--color-font);
+  padding: 0 1.5em;
+  font: 300 0.9em/3.5 var(--heading-font);
+  outline: none;
+  margin: calc(var(--text-line) / 2 * 1em) 0;
+}
+
+textarea {
+  height: 10em;
+  resize: none;
+  line-height: 1.8;
+  padding: 1em;
+  padding-left: 1.5em;
+}
+select {
+  height: 3.5em;
+}
+  input:focus, select:focus, textarea:focus {
+    box-shadow: 0 0 0 var(--line) var(--color-impact-translucent);
+  }
+  input.error, select.error {
+    box-shadow: 0 0 0 var(--line) var(--color-alert-translucent);
+  }
+
+input.check-box {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+}
+input.check-box + span {
+  margin-left: 0.5em;
+}
+input.check-box :parent { /* How would you do something like this? I want the <li> container to have top/bottom margins*/
+  margin: 0.5em 0;
+}
+/* is this the proper way? */
+.check-box-container li {
+  margin: 0.5em 0;
+}
+
+button, .button, .buttonAlt {
+  display: inline-block;  /* non-colapsing margins: do we care? */
+  min-width: 8em;
+  border: var(--line) solid var(--color-impact);
+  border-radius: 1.5em;
+  background-color: var(--color-impact);
+  color: var(--color-light);
+  font: 300 1em/2.5 var(--content-font);
+  cursor: pointer;
+  box-sizing: border-box;
+  margin: calc(var(--text-line) / 2 * 1em) 0;
+  outline: none;
+  text-decoration: none;
+  text-align: center;
+  width: auto;
+  padding: 0 1em;
+  max-height: 3em;
+}
+  button:hover, .button:hover {
+    color: var(--color-impact);
+    background-color: var(--color-bg);
+    border: var(--line) solid var(--color-impact);
+    text-decoration: none;
+  }
+  button:active, .button:active {
+    background-color: var(--color-impact);
+    color: var(--color-light);
+  }
+
+.buttonAlt {
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  color: var(--color-impact);
+  min-width: 0;
+}
+.buttonAlt:hover, .buttonAlt:active {
+  color: var(--color-impact-translucent);
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+}
+
+.button:disabled {
+  background-color: lightgrey;
+  color: black;
+  border: var(--line) solid lightgrey;
+  cursor: not-allowed;
+}
+.button:disabled:hover {
+  text-decoration: none;
+}
+
+.button-sticky {
+  position: sticky;
+  bottom: 1em;
+  box-shadow: var(--shadow-white);
+}
+
+/****************** PROGRESS BARS ******************/
+
+.progress-bar {
+  width: 100%;
+  height: 1.2em;
+  background-color: white;
+  box-shadow: 0 0 0 var(--line) var(--color-impact-translucent);
+  border-radius: 50em;
+  transition: 0.5s ease;
+  text-align: center;
+}
+.progress-bar .progress-amount {
+  width: 0%;
+  height: 100%;
+  background-color: var(--color-impact);
+  border-radius: 50em;
+  transition: 0.5s ease;
+}
+.done-module {
+  box-shadow: unset !important;
+}
+.done-module .progress-amount {
+  background-color: transparent !important;
+}
+
+/****************** TEXT UTILITY FUNCTIONS ******************/
+
+.lighten {
+  font-weight: lighter;
+}
+
+.counted {
+  list-style: decimal;
+  padding-left: 2em;
+}
+
+.counted ol, .counted ul {
+  padding-left: 2em;
+}
+
+.bulleted {
+  list-style: disc;
+  padding-left: 2em;
+}
+
+.bulleted ol, .bulleted ul {
+  padding-left: 2em;
+}
+
+.list-inline > li {
+  display: inline-block;
+}
+
+.txt-impact {
+  color: var(--color-impact);
+}
+
+.small-margin-bottom {
+  margin-bottom: 0.5em;
+}
+
+.inline {
+  display: inline-block;
+}
+
+
+.row-space {
+  margin-top: var(--spacing);
+  margin-bottom: var(--spacing);
+}
+
+.row-space-big {
+  margin-top: calc(var(--spacing) * 3);
+  margin-bottom: calc(var(--spacing) * 3);
+}
+
+/****************** LAYOUT UTILITY FUNCTIONS ******************/
+
+.shrink-vertical {
+  align-self: start;
+}
+
+.tight-padding {
+  padding: 1em;
+}
+
+.drag-me {
+  position: absolute;
+  bottom: 1em;
+  max-width: 2em;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.drag-me div {
+  background-color: lightgrey;
+  position: relative;
+  margin: 0 auto 0.3em auto;
+  width: 100%;
+  max-width: 1.6em;
+  height: 2px;
+  border-radius: 1em;
+}
+
+@media screen and (min-width: 48em) {
+  :root {
+    --tile-padding: 3em;
+  }
+  body {
+    margin-left: calc(3.5em + var(--spacing) + var(--spacing));
+    margin-bottom: 0;
+    font-size: 1.5em;
+    padding-bottom: 0;
+  }
+
+  .layout {
+    max-width: 45em;
+    margin: auto;
+  }
+  .toolbar {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: auto;
+    height: 100%;
+    padding: 0;
+  }
+    .tools {
+      grid-template-columns: 1fr;
+      align-content: start;
+      grid-gap: var(--spacing);
+      border-radius: 0;
+      height: 100%;
+      padding: var(--spacing);
+    }
+
+  .steps {
+    justify-self: center;
+  }
+}
