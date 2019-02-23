@@ -1,37 +1,48 @@
 import React, { Component } from 'react';
-import ToolBar from 'ToolBar';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+
 import TipsPopup from 'TipsPopup';
+import IndexPage from 'IndexPage';
 import DashboardPage from 'DashboardPage';
-// Remember to add import each page here
+
+import dash from 'dashboard.svg';
+import port from 'portfolio.svg';
+import help from 'help.svg';
+
 
 class App extends Component {
   render() {
     return (
-      
-      <div className="app">
-        {/* The ToolBar and TipsPopup that live on every page */}
-        <ToolBar />
-        <TipsPopup />
-        
-        {/* Include the <main class="layout"> directly within each of the  
-          following components that (for now) represent all of our pages.
-          Comment in/out each component page to test it (again, for now)  */}
-        
-        {/* <IndexPage /> */}
-        {/* <SignupPage /> */}
-        {/* <LoginPage /> */}
-        <DashboardPage />
-        {/* <ModuleStartPage /> */}        
-        {/* <PortfolioDisplayPage /> */}
-        {/* <PortfolioCreatePage /> */}
-        {/* <PortfolioEditPage /> */}
-        {/* <HelpPage /> */}
-        {/* <CompetencyPage /> */}
 
-        {/* Once these are all created, we will use React Router to move
-          between them, then split them into components  */}
-        
-      </div>
+      <Router>
+        <div className="app">
+          
+          <nav className="toolbar">
+            <ul className="tools">
+              <li className="tool"><Link to="/">Home</Link></li>
+              <li className="tool"><Link to="/dashboard"><img src={dash} alt="FILL THIS IN!!" /></Link></li>
+              {/* <li className="tool"><Link to="/portfolio"><img src={port} alt="FILL THIS IN!!" /></Link></li> */}
+              {/* <li className="tool"><Link to="/help"><img src={help} alt="FILL THIS IN!!" /></Link></li> */}
+            </ul>
+          </nav>
+
+          <TipsPopup />
+
+          {/* EVERY URL THAT NEEDS TO BE REGISTERED (PAGES) IS DONE SO HERE */}
+          <Route exact path="/" component={IndexPage} />
+          <Route path="/dashboard" component={DashboardPage} />
+          {/* <Route path="/portfolio" component={PortfolioDisplayPage} /> */}
+          {/* <Route path="/help" component={HelpPage} /> */}
+          {/* <SignupPage /> */}
+          {/* <LoginPage /> */}
+          {/* <DashboardPage /> */}
+          {/* <ModuleStartPage /> */}        
+          {/* <PortfolioCreatePage /> */}
+          {/* <PortfolioEditPage /> */}
+          {/* <CompetencyPage /> */}
+
+        </div>
+      </Router>
 
     ); // end return
   } // end render()

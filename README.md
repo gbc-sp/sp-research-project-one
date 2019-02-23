@@ -4,11 +4,20 @@ Phase one of our GBC research project with SP.
 
 ## Development Notes
 
-Hi!
+Here are some helpful notes on the development of this project.
 
-### Component Template
+### Local development environment
 
-Here is an example of component class:
+The recommended development application is [VS Code](https://code.visualstudio.com/), viewed in [Google Chrome](https://www.google.com/chrome/).
+
+#### A few useful packages for VS Code
+
+- https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme
+- https://marketplace.visualstudio.com/items?itemName=joshpeng.sublime-babel-vscode
+
+### Component templates
+
+Here is an example of component `class`:
 
 ```ES6
 import React, { Component } from 'react';
@@ -24,7 +33,7 @@ class ComponentName extends Component {
 export default ComponentName;
 ```
 
-Here is an example of the same component using a function:
+Here is an example of the same component using a `function`:
 
 ```ES6
 import React from 'react';
