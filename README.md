@@ -17,7 +17,7 @@ The recommended development application is [VS Code](https://code.visualstudio.c
 
 ### Component templates
 
-Here is an example of component `class`:
+Here is an example of a component `class`:
 
 ```ES6
 import React, { Component } from 'react';
