@@ -40,7 +40,7 @@ import React from 'react';
 
 function ComponentName(props) {
   return (
-    <!-- JSX (HTML) goes here! -->
+    {/*  JSX (HTML) goes here! */}
   );
 }
 
