@@ -25,7 +25,7 @@ import React, { Component } from 'react';
 class ComponentName extends Component {
   render() {
     return (
-      <!-- JSX (HTML) goes here! -->
+      {/* JSX (HTML) goes here! */}
     );
   }
 }
