@@ -34,14 +34,14 @@ class App extends Component {
           {/* EVERY URL THAT NEEDS TO BE REGISTERED (PAGES) IS DONE SO HERE */}
           <Route exact path="/" component={IndexPage} />
           <Route path="/dashboard" component={DashboardPage} />
-          {/* <Route path="/portfolio" component={PortfolioDisplayPage} /> */}
+          <Route path="/portfolio" component={PortfolioDisplayPage} />
           <Route path="/help" component={HelpPage} />
-          {/* <SignupPage /> */}
+          <SignupPage />
           <LoginPage />
           {/* <DashboardPage /> */}
-          {/* <ModuleStartPage /> */}
+          <ModuleStartPage />
           {/* <PortfolioCreatePage /> */}
-          {/* <PortfolioEditPage /> */}
+          <PortfolioEditPage />
           {/* <CompetencyPage /> */}
           <Route path="/" component={CompetencyPage1} />
           <Route path="/" component={CompetencyPage2} />
