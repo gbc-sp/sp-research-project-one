@@ -4,6 +4,16 @@ import { Route, Link, BrowserRouter as Router } from "react-router-dom";
 import TipsPopup from "TipsPopup";
 import IndexPage from "IndexPage";
 import DashboardPage from "DashboardPage";
+import CompetencyPage1 from "CompetencyPage1";
+import CompetencyPage2 from "CompetencyPage2";
+import CompetencyPage3 from "CompetencyPage3";
+import CompetencyPage4 from "CompetencyPage4";
+import PortfolioEditPage from "PortfolioEditPage";
+import PortfolioDisplayPage from "PortfolioDisplayPage";
+import SignupPage from "SignupPage";
+import LoginPage from "LoginPage";
+import HelpPage from "HelpPage";
+import ModuleStartPage from "ModuleStartPage";
 
 import dash from "dashboard.svg";
 import port from "portfolio.svg";
@@ -46,7 +56,7 @@ class App extends Component {
           <Route path="/" component={CompetencyPage1} />
           <Route path="/" component={CompetencyPage2} />
           <Route path="/" component={CompetencyPage3} />
-          <Route path="/" component={CompetencyPage4} />
+          <CompetencyPage4 />
         </div>
       </Router>
     ); // end return

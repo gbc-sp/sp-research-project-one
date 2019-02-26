@@ -19,12 +19,12 @@ class PortfolioEditPage extends Component {
               <h2>Bio</h2>
               <input
                 type="text"
-                value="This is all about me! I'm a person that uses Skillpod, and I love it!"
+                defaultValue="This is all about me! I'm a person that uses Skillpod, and I love it!"
               />
             </div>
             <div className="bio-span">
               <h2>Contact</h2>
-              <input type="text" value="abc@def.com" />
+              <input type="text" defaultValue="abc@def.com" />
             </div>
           </div>
         </div>
@@ -116,7 +116,7 @@ class PortfolioEditPage extends Component {
                 className="check-box"
                 type="checkbox"
                 name="option1"
-                value="Communication"
+                defaultValue="Communication"
               />
               <span>Communication</span>
             </li>
@@ -125,7 +125,7 @@ class PortfolioEditPage extends Component {
                 className="check-box"
                 type="checkbox"
                 name="option2"
-                value="Consequences"
+                defaultValue="Consequences"
               />
               <span>Cosequences</span>
             </li>
@@ -134,7 +134,7 @@ class PortfolioEditPage extends Component {
                 className="check-box"
                 type="checkbox"
                 name="option3"
-                value="Confidence"
+                defaultValue="Confidence"
               />
               <span>Confidence</span>
             </li>
@@ -143,7 +143,7 @@ class PortfolioEditPage extends Component {
                 className="check-box"
                 type="checkbox"
                 name="option4"
-                value="Leadership"
+                defaultValue="Leadership"
               />
               <span>Leadership</span>
             </li>
@@ -152,7 +152,7 @@ class PortfolioEditPage extends Component {
                 className="check-box"
                 type="checkbox"
                 name="option5"
-                value="Conflict Resolution"
+                defaultValue="Conflict Resolution"
               />
               <span>Conflict resolution</span>
             </li>
@@ -162,7 +162,7 @@ class PortfolioEditPage extends Component {
           <input type="text" name="goals" placeholder="Talk about your goal." />
 
           <h2>What I can offer a company</h2>
-          <input type="text" name="offer" value="" />
+          <input type="text" name="offer" defaultValue="" />
 
           <a href="portfolio.html" className="button">
             <span>Save</span>

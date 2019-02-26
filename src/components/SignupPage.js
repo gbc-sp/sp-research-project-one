@@ -13,30 +13,24 @@ class SignupPage extends Component {
           <input type="text" placeholder="Last Name" />
           <input type="text" placeholder="E-mail" />
           <select>
-            <option disabled selected value>
-              Sex
-            </option>
+            <option value={null}>Sex</option>
             <option value="three">Prefer not to answer</option>
             <option value="one">Male</option>
             <option value="two">Female</option>
             <option value="three">Non-Binary</option>
           </select>
-          <br>
+          <div>
             <input type="text" placeholder="City" />
             <select>
-              <option disabled selected value>
-                Country
-              </option>
+              <option value={null}>Country</option>
               <option value="one">Canada</option>
-              <option value="two">Uganda</option>
+              <option value="two">Wakanda</option>
               <option value="three">Other countries</option>
             </select>
-          </br>
+          </div>
           <p>What best describes your current status?</p>
           <select>
-            <option disabled selected value>
-              Pick one
-            </option>
+            <option value={null}>Pick one</option>
             <option value="three">High School</option>
             <option value="one">Community College</option>
             <option value="two">University</option>

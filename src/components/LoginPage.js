@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class IndexPage extends Component {
+class LoginPage extends Component {
   render() {
     return (
       <main className="layout">
