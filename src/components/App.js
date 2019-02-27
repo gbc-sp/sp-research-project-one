@@ -24,23 +24,24 @@ class App extends Component {
   render() {
     return (
       <Router>
+
+        {/* https://medium.freecodecamp.org/hitchhikers-guide-to-react-router-v4-4b12e369d10 */}
+        {/* https://codeburst.io/getting-started-with-react-router-5c978f70df91  */}
+        {/* https://blog.pshrmn.com/entry/simple-react-router-v4-tutorial/ */}
+        {/* https://reacttraining.com/react-router/web/api/Link */}
+
         <div className="app">
           <nav className="toolbar">
             <ul className="tools">
-              <li className="tool">
-                <Link to="/">Home</Link>
-              </li>
-              <li className="tool">
-                <Link to="/dashboard">
-                  <img src={dash} alt="FILL THIS IN!!" />
-                </Link>
-              </li>
+              <li className="tool"><Link to="/">Home</Link></li>
+              <li className="tool"><Link to="/dashboard"><img src={dash} alt="FILL THIS IN!!" /></Link></li>
               <li className="tool"><Link to="/portfolio"><img src={port} alt="FILL THIS IN!!" /></Link></li>
               <li className="tool"><Link to="/help"><img src={help} alt="FILL THIS IN!!" /></Link></li>
             </ul>
           </nav>
 
           <TipsPopup />
+
 
           {/* EVERY URL THAT NEEDS TO BE REGISTERED (PAGES) IS DONE SO HERE */}
           <Route exact path="/" component={IndexPage} />
