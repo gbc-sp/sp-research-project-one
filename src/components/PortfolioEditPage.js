@@ -12,7 +12,7 @@ class PortfolioEditPage extends Component {
         <div className="tile">
           <div className="bio-grid">
             <div className="bio-image">
-              <img src="img/me.jpg" alt="my profile picture" />
+              <img src="img/me.jpg" alt="User name" />
             </div>
             <h1>Aaron DeRoche</h1>
             <div className="bio-span">
@@ -42,7 +42,7 @@ class PortfolioEditPage extends Component {
                   <h4 className="small-margin-bottom">Module</h4>
                   <h3>Self Work</h3>
                 </div>
-                <img src="img/selfWork.svg" />
+                <img src="img/selfWork.svg" alt="" />
                 <div className="drag-me">
                   <div />
                   <div />

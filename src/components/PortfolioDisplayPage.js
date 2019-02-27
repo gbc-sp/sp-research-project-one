@@ -1,40 +1,17 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class PortfolioDisplayPage extends Component {
   render() {
     return (
-      /*
-            <nav className="toolbar">
-                <ul className="tools">
-                    <li className="tool"><a href="dashboardv2.html">dashboard</a><div className="tool-selected"></div></li>
-                    <li className="tool current"><a href="portfolio.html">portfolio</a><div className="tool-selected"></div></li>
-                    <li></li>
-                    <li className="tool"><a href="help.html">help</a><div className="tool-selected"></div></li>
-                </ul>
-            </nav>
-
-                <div id="portfolioPop" className="pop-up">
-                    <div className="tile">
-                        <div id="anotherClosePop" className="close-pop-up"><span className="lighten">x</span></div>
-                        <div className="bio-grid">
-                            <img src="img/infoManagement.svg"/>
-                                <div>
-                                    <h3 className="txt-impact">Information Management</h3>
-                                    <h1>Your Portfolio Piece</h1>
-                                </div>
-                     </div>
-                            <p>Information Management is crucial for me as a recent graduate looking for work. While talking to a prospective employer, she told me that she found a link to a number of YouTube videos that I had created when I was younger. This was not the professional image that I hoped to share. As a result, I have carefully searched and changed privacy settings on my social media to make sure that I have managed my personal image. I know that care and attention to privacy is important for me and for those around me and also will reflect on how I care about the company and colleagues where I work.</p>
-                        </div>
-                    </div>
-                    */
 
       <main className="layout">
         <div className="tile blank">
           <h1>Skillpod Portfolio</h1>
           <h3>A collection about you.</h3>
-          <a href="portfolio-edit.html" className="button">
+          <Link to="/portfolio/edit" className="button">
             <span>Edit Information</span>
-          </a>
+          </Link>
         </div>
 
         <div className="tile">

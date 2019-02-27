@@ -10,6 +10,7 @@ import CompetencyPage3 from "CompetencyPage3";
 import CompetencyPage4 from "CompetencyPage4";
 import PortfolioEditPage from "PortfolioEditPage";
 import PortfolioDisplayPage from "PortfolioDisplayPage";
+import PortfolioCreatePage from "PortfolioCreatePage";
 import SignupPage from "SignupPage";
 import LoginPage from "LoginPage";
 import HelpPage from "HelpPage";
@@ -34,8 +35,8 @@ class App extends Component {
                   <img src={dash} alt="FILL THIS IN!!" />
                 </Link>
               </li>
-              {/* <li className="tool"><Link to="/portfolio"><img src={port} alt="FILL THIS IN!!" /></Link></li> */}
-              {/* <li className="tool"><Link to="/help"><img src={help} alt="FILL THIS IN!!" /></Link></li> */}
+              <li className="tool"><Link to="/portfolio"><img src={port} alt="FILL THIS IN!!" /></Link></li>
+              <li className="tool"><Link to="/help"><img src={help} alt="FILL THIS IN!!" /></Link></li>
             </ul>
           </nav>
 
@@ -44,19 +45,17 @@ class App extends Component {
           {/* EVERY URL THAT NEEDS TO BE REGISTERED (PAGES) IS DONE SO HERE */}
           <Route exact path="/" component={IndexPage} />
           <Route path="/dashboard" component={DashboardPage} />
-          <Route path="/portfolio" component={PortfolioDisplayPage} />
+          <Route exact path="/portfolio" component={PortfolioDisplayPage} />
+          <Route path="/portfolio/create" component={PortfolioCreatePage} />
+          <Route path="/portfolio/edit" component={PortfolioEditPage} />
           <Route path="/help" component={HelpPage} />
-          <SignupPage />
-          <LoginPage />
-          {/* <DashboardPage /> */}
-          <ModuleStartPage />
-          {/* <PortfolioCreatePage /> */}
-          <PortfolioEditPage />
-          {/* <CompetencyPage /> */}
-          <Route path="/" component={CompetencyPage1} />
-          <Route path="/" component={CompetencyPage2} />
-          <Route path="/" component={CompetencyPage3} />
-          <CompetencyPage4 />
+          <Route path="/signup" component={SignupPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/module" component={ModuleStartPage} />
+          <Route exact path="/competency" component={CompetencyPage1} />
+          <Route path="/competency/2" component={CompetencyPage2} />
+          <Route path="/competency/3" component={CompetencyPage3} />
+          <Route path="/competency/4" component={CompetencyPage4} />
         </div>
       </Router>
     ); // end return

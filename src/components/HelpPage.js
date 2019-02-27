@@ -17,7 +17,7 @@ class HelpPage extends Component {
             you provide evidence of your skills to potnetial employers and talk
             about your skills with confidence.
           </p>
-          <br>
+          <div>
             <h2>What are executive skills?</h2>
             <p>
               Executive skills are skills that allow you to thrive in your work
@@ -26,7 +26,7 @@ class HelpPage extends Component {
               teamwork. Executive skills include these “soft skills” but include
               additional skills as well.
             </p>
-          </br>
+          </div>
           <h2>Why do I have to do a portfolio peice?</h2>
           <p>
             As a result of doing the work, you will have a portfolio of
@@ -39,7 +39,7 @@ class HelpPage extends Component {
             ability to discuss these skills and their component parts will help
             you to land the job you want.
           </p>
-          <br>
+          <div>
             <h2>What are competencies?</h2>
             <p>
               Each skill is further defined by four main“competencies” or key
@@ -48,7 +48,7 @@ class HelpPage extends Component {
               complete all four competnacies you are prompted to make a
               portfolio peice.
             </p>
-          </br>
+          </div>
           <h2>What is the PLP?</h2>
           <p>
             The PLP stands for Personal Learning Plan. It provides a customized
