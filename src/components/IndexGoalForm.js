@@ -40,6 +40,7 @@ class IndexGoalForm extends Component {
             error: false,
             label: 'in the field of',
             options: [
+                {key:'i', option:'I Don\'t Know'},
                 {key:'journalism', option:'Journalism'},
                 {key:'politics', option:'Politics'},
                 {key:'legal', option:'Legal'},
@@ -97,6 +98,8 @@ class IndexGoalForm extends Component {
         return (
             <form onSubmit={this.handleSubmit} className={this.props.className ? this.props.className : undefined}>
                 <h2>{this.state.title}</h2>
+                {console.log(this.state.goals.options)
+                }
 
                 {/* https://stackoverflow.com/questions/43638938/updating-an-object-with-setstate-in-react */}
                 {/* https://itnext.io/updating-properties-of-an-object-in-react-state-af6260d8e9f5 */}

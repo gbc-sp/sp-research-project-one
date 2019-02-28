@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400|Poppins:300,700');
-
 :root {
   /* Global variables */
-  --color-font: #060606;
+  --color-font: #26333b;
   --color-heavy: #333;
   --color-light: #fff;
   --color-bg: #F9F9FC;
   --color-impact: #527AFF;
   --color-highlight: #7AEB7D;
+  --color-medium: #D1D2DB;
   --color-impact-translucent: rgba(82, 122, 255, 0.7);
   --color-alert-translucent: rgba(255, 0, 0, 0.7);
 
@@ -21,33 +21,36 @@
   --color-info-management: #F2DE32;
 
   --heading-font: "Poppins", "Helvetica", sans-serif;
-  --content-font: "Nunito", "Helvetica", sans-serif;
+  --subheading-font:"Avenir", sans-serif;
+  --content-font: "Avenir", "Helvetica", sans-serif;
 
-  --text-line: 1.8;
-  --spacing: 1em;
-  --tile-padding: 2em;
-  --corners: 1em;
+  --text-line: 1.5;
+  --gap: 1.5em;
+  --padding: 2em;
+  --padding-static: 2em;
+  --corners: 1.5em;
   --line: 0.25rem;
+  --tile-max: 60em;
 
-  --shadow: 0 3px 26px rgba(192,182,209,0.25);
-  --shadow-white: 0 13px 20px 3px rgba(255, 255, 255, 0.9);
+  --shadow: 0 3px 26px rgba(192,182,209,0.15);
+  --shadow-dark: 0 0 15px 5px rgba(192,182,209,0.4);
 
   --breakpoint: 50em;
 }
 
 html {
-  font: 400 0.9em/var(--text-line) var(--content-font);
+  font: 300 0.9em/var(--text-line) var(--content-font);
 }
 
-html, body, .root, .app {
+html, body {
   height: 100%;
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-font);
-  padding: 0 var(--spacing);
-  padding-bottom: calc(3.5em + var(--spacing) + var(--spacing));
+  padding: 0 var(--padding);
+  padding-bottom: calc(3.5em + var(--gap) + var(--gap));
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -59,11 +62,13 @@ h3 + h1, h3 + h2 {
 }
 
 h1 {
-  font: 700 1.6em/1 var(--heading-font);
+  font: 700 1.7em/1 var(--heading-font);
+  margin: 0.3em 0;
 }
 h2 {
-  font: 700 1.1em/1 var(--heading-font);
+  font: 600 1em/1 var(--subheading-font);
   line-height: 1.3;
+  color: var(--color-medium);
 }
 h3 {
   font: 300 0.9em/1 var(--heading-font);
@@ -80,7 +85,7 @@ h6 {
 }
 
 p {
-  margin: var(--spacing) 0;
+  margin: var(--gap) 0;
 }
 
 a {
@@ -101,13 +106,62 @@ a:focus, a:hover {
   text-align: center;
 }
 
+.dark-bg {
+  background-color: var(--color-font);
+}
+
+.no-margin {
+  margin: 0;
+}
+
+/* for tiles */
+.tile.no-vertical-padding {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.tile.no-bottom-padding {
+  padding-bottom: 0;
+}
+.tile.limit-width {
+  max-width: var(--tile-max);
+  margin: auto;
+}
+.more-tile-padding {
+  padding: 3em;
+}
+
+/* for tile content */
+.tile .no-vertical-margin, .no-vertical-margin {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.tile .big-vertical-margin {
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+}
+
+.white-txt, .white-txt p, .white-txt span, .white-txt h1, .white-txt h2, .white-txt h3, .white-txt h4, .white-txt h5, .white-txt h6 {
+  color: var(--color-light);
+}
+
+.invert img {
+  filter: invert(1);
+}
+
+.logo-img {
+  width: 10em;
+}
+.logo-img.logo-2 {
+  width: 14em;
+}
+
 /****************** GRID LAYOUTS ******************/
 
 .layout {
   display: grid;
-  grid-gap: var(--spacing);
+  grid-gap: var(--gap);
   min-height: 100%;
-  padding: var(--spacing) 0;
+  padding: var(--gap) 0;
   margin-bottom: 5.5em;  /* assumes the bottom bar is always the same height - revisit */
 }
 
@@ -124,13 +178,13 @@ body.no-toolbar {
 
 .layout.competency {
   grid-template-rows: auto auto 1fr;
-  /* grid-template-rows: calc(var(--tile-padding) * 2 + 2em) auto calc(var(--tile-padding) * 2 + 1em); */
+  /* grid-template-rows: calc(var(--padding) * 2 + 2em) auto calc(var(--padding) * 2 + 1em); */
 }
 
 .bio-grid {
   display: grid;
   grid-template-columns: 4em auto;
-  grid-gap: var(--spacing);
+  grid-gap: 1em;
 }
 .bio-span {
   grid-column: 1 / span 2;
@@ -140,12 +194,57 @@ body.no-toolbar {
   width: 100%;
 }
 
+.two-column-grid, .one-column-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: var(--gap);
+}
+.one-column-grid {
+  grid-template-columns: 1fr;
+}
+
+.two-column-grid.button-grid {
+  grid-template-columns: min-content auto;
+}
+.button-grid .two-column-grid {
+  grid-gap: 0;
+}
+
+.public-private.two-column-grid {
+  grid-template-columns: unset;
+  grid-template-rows: auto auto;
+}
+.public-private .vertical-stack {
+  width: 100%;
+  padding: 1em;
+  border-radius: 1em;
+}
+.public-private .vertical-stack .module.two-column-grid {
+  margin: 1em 0.5em;
+  width: auto;
+  min-width: auto;
+  align-items: center;
+  grid-template-columns: 3em auto;
+  grid-template-rows: unset;
+  padding: calc(var(--padding) / 2);
+  padding-right: 3.5em;
+}
+.public-private .vertical-stack .module.two-column-grid .put-after {
+  order: 2;
+}
+
+@media screen and (min-width: 34em) {
+  .button-grid {
+    grid-template-columns: 35% auto;
+  }
+}
+
 /****************** LAYOUT COMPONENTS ******************/
 
 .tile {
   background-color: var(--color-light);
   border-radius: var(--corners);
-  padding: var(--tile-padding);
+  padding: var(--padding);
   box-shadow: var(--shadow);
 }
   .tile :first-child {
@@ -155,28 +254,96 @@ body.no-toolbar {
     margin-bottom: 0;
   }
 
-.blank {
-  background-color: transparent !important;
+.tile.blank {
+  background-color: transparent;
   box-shadow: none;
 }
-
+.scrollable-row-double {
+  display: grid;
+  overflow-x: scroll;
+  margin: 0 -2em;
+  padding: 0 2em 2em 2em;
+  grid-template-columns: repeat(7, 10em);
+  grid-template-rows: auto 13em;
+  grid-gap: 1em;
+}
+.scrollable-row-double .tile {
+  /* flex: 0 0 auto; */
+  width: 100%;
+  height: 100%;
+  /* margin: 1em 0.5em; */
+}
 .scrollable-row {
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
-  margin: 0 calc(-1 * var(--spacing));
-  padding: 0 var(--spacing);
+  margin: 0 calc(-1 * 2em);
+  padding: calc(var(--padding)/2) var(--padding);
+  height: auto;
 }
-/* creates problems */
-/* .scrollable-row .tile:first-child {
-  margin-left: 0;
-} */
 .scrollable-row .tile {
   flex: 0 0 auto;
   width: 10em;
-  text-align: center;
-  margin: 1em 0.5em;
+  margin: 2em 0.5em;
   position: relative;
+}
+
+.tile.module {
+  padding: var(--padding-static) calc(var(--padding-static) * 0.75) calc(var(--padding-static) * 0.75) calc(var(--padding-static) * 0.75);
+  position: relative;
+  font-size: 1em;
+  color: white;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.tile.module h3 {
+  line-height: 1.5;
+  margin-top: 0.3em;
+}
+.tile.module h4 {
+  margin-top: 0;
+}
+
+.module img {
+  width: 3.5em;
+}
+.module.disabled {
+  background-color: var(--color-medium);
+  cursor: not-allowed;
+}
+
+.module-done {
+  position: absolute;
+  bottom: 1.4em;
+  width: 2em;
+  right: 1.7em;
+  background-color: rgba(0,0,0,0.2);
+  height: 2em;
+  border-radius: 100%;
+}
+.module-done .checkmark {
+  filter: invert(1);
+  margin: -0.5em;
+  position: relative;
+  left: 1em;
+}
+.module .tool-menu {
+  position: absolute;
+  visibility: hidden;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 1em;
+  width: auto;
+  height: auto;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
+  padding: calc(var(--padding) / 4) calc(var(--padding) / 2);
+}
+.module .tool-menu * {
+  display: inline-block;
+}
+.module:hover .tool-menu {
+  visibility: visible;
 }
 
 .fixed-width-row {
@@ -185,57 +352,98 @@ body.no-toolbar {
   justify-content: space-evenly;
 }
 .fixed-width-row .tile {
-  padding-bottom: var(--spacing);
+  padding-bottom: 1em;
   position: relative;
-  padding: var(--spacing) calc(0.5 * var(--spacing));
+  padding: 1em 0.5em;
   width: 20%;
 }
 
 .tile.selected {
-  background: var(--color-impact);
   transform: scale(0.95);
-  color: white;
+}
+.tile.selected .selected-bar {
+  opacity: 1;
+  bottom: -0.8em;
+  width: 6em;
+}
+.selected-bar, .dynamic-content-panel .selected-bar {
+  width: 3em;
+  position: absolute;
+  height: 3px;
+  border-radius: 1em;
+  background-color: var(--color-medium);
+  opacity: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.5s ease;
 }
 
-.tile.selected img {
-  /* fill: white; */
-  filter: invert(1);
-}
-
-.tile.module {
-  padding: var(--tile-padding) 1em;
-}
-
-.module img {
-  width: 5em;
-}
-
-.pop-up {
+.pop-up { /* display:grid when active */
   width: 100%;
   height: 100%;
-  padding: var(--spacing);
   position: fixed;
   left: 0;
   top: 0;
+  padding: var(--padding);
   z-index: 999999;
-  background: rgba(0,0,0,0.5);
-  display: none;
+  grid-gap: var(--gap);
+  min-height: 100%;
+  overflow-y: scroll;
+  background-color: var(--color-bg);
+  /* display: none; */
+  padding-bottom: 6em;
 }
 .close-pop-up {
-  top: 1em;
   line-height: 0.6em;
-  right: 1em;
-  position: absolute;
   font-size: 1.4em;
   padding: 0.4em;
 }
 .pop-up .tile {
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  max-height: 100%;
-  overflow-y: scroll;
-  padding: 3em;
+}
+
+.pop-up .pop-up-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: calc(var(--gap) - 0.5em) var(--padding);
+  border-radius: 0;
+  background-color: var(--color-bg);
+  z-index: 1;
+}
+
+.pop-up .two-column-grid {
+  align-items: center;
+  grid-template-columns: 3em auto;
+}
+
+.vertical-stack.scrollable-row {
+  flex-direction: row;
+  height: auto;
+  max-width: unset;
+}
+.module.two-column-grid {
+  align-items: end;
+}
+.dynamic-content-panel.two-column-grid, .module.two-column-grid {
+  grid-template-columns: unset;
+  grid-template-rows: min-content auto;
+}
+.pop-up .vertical-stack .tile {
+  width: auto;
+  max-width: 15em;
+}
+.pop-up .vertical-stack .tile.selected {
+  color: var(--color-font);
+}
+.pop-up .vertical-stack .tile:hover {
+  cursor: pointer;
+}
+
+.goal-field {
+  margin-bottom: 1em;
 }
 
 /****************** FIXED TOOLBAR ******************/
@@ -246,41 +454,67 @@ body.no-toolbar {
   left: 0;
   width: 100%;
   z-index: 99999;
-  padding: var(--spacing);
+  /* padding: 1em; */
   line-height: 1;
-  background: linear-gradient(transparent, transparent, rgba(255,255,255,0.7));
 }
   .tools {
     background-color: var(--color-impact);
+    background-color: var(--color-bg);
     color: var(--color-light);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: min-content min-content auto min-content;
+    font-size: 0.8em;
     justify-items: center;
     text-align: center;
-    grid-column-gap: var(--spacing);
-    padding: 0.5em 2em;
-    border-radius: 1.5em;
+    grid-column-gap: var(--gap);
+    padding: 0.5em 3em;
+    border-radius: 1.5em 1.5em 0 0;
+    border-radius: 0;
+    height: 5.5em;
   }
     .tool {
-      width: 3.5em;
-      height: 3.5em;
-      padding: 0.7em;
-      border-radius: var(--corners);
+      width: 100%;
       cursor: pointer;
-      background-color: rgba(255,255,255,0.1);
+      align-self: center;
+      position: relative;
     }
+      .tool.current .tool-selected {
+        opacity: 1;
+        width: 1.5em;
+      }
       .tool a {
         display: block;
+        color: var(--color-font);
+        font-weight: bold;
+        padding-bottom: 0.4em;
       }
-      .tool img {
-        filter: invert(1);
+      .tool a:hover, .tool a:focus {
+        text-decoration: none;
       }
-      .tool:hover {
-        background-color: rgba(255,255,255,0.2);
+      .tool .tool-selected {
+        height: 2.5px;
+        width: 0.3em;
+        background-color: var(--color-font);
+        border-radius: 1em;
+        margin: auto;
+        opacity: 0;
+        transition: 0.3s ease;
+      }
+      .tool:hover .tool-selected {
+        opacity: 1;
+        width: 1.5em;
       }
 
+.pop-up .toolbar {
+  position: static;
+}
+.pop-up .toolbar .tools {
+  background-color: transparent;
+  height: auto;
+  padding: 0.5em 1em;
+}
 
-/****************** STEP COMPONENT ******************/
+/****************** STEP COMPONENT (no longer in use) ******************/
 
 .steps {
   align-self: end;
@@ -295,7 +529,7 @@ body.no-toolbar {
     background-color: transparent;
     border: var(--line) solid var(--color-heavy);
     border-radius: 50%;
-    margin-right: var(--spacing);
+    margin-right: var(--gap);
     cursor: pointer;
   }
     .step:last-child {
@@ -335,6 +569,26 @@ textarea {
 select {
   height: 3.5em;
 }
+.layout.intro select {
+  background: none;
+  border: none;
+  margin: 0;
+  border-bottom: solid 4px var(--color-impact);
+  border-radius: 0;
+  width: auto;
+  font: 400 1em/var(--text-line) var(--content-font);
+}
+.layout.intro select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.layout.intro select::-ms-expand {
+    display: none;
+}
+.layout.intro select:focus {
+  outline:none;
+  box-shadow: none;
+}
   input:focus, select:focus, textarea:focus {
     box-shadow: 0 0 0 var(--line) var(--color-impact-translucent);
   }
@@ -358,7 +612,7 @@ input.check-box :parent { /* How would you do something like this? I want the <l
   margin: 0.5em 0;
 }
 
-button, .button, .buttonAlt {
+button, .button, .buttonAlt, .button-square {
   display: inline-block;  /* non-colapsing margins: do we care? */
   min-width: 8em;
   border: var(--line) solid var(--color-impact);
@@ -387,6 +641,38 @@ button, .button, .buttonAlt {
     color: var(--color-light);
   }
 
+.button-square {
+  color: var(--color-font);
+  font: 300 0.7em/1 var(--content-font);
+  border: none;
+  min-width: 0;
+  max-height: unset;
+  margin: auto;
+  padding: 1em;
+  background-color: transparent;
+  display:grid;
+  grid-template-columns: 3em;
+  grid-template-rows: 3em auto;
+  display: inline-block;
+  width: auto;
+  min-width: 6em;
+}
+.button-square img {
+  filter: invert(1);
+  width: 2.4em;
+  display: inline-block;
+}
+.button-square span {
+  display: block;
+  padding-top: 0.4em;
+}
+.button-square:hover, .button-square:active {
+  color: var(--color-impact-translucent);
+  background-color: var(--color-bg);
+  border: none;
+  color: unset;
+}
+
 .buttonAlt {
   border: none;
   background-color: transparent;
@@ -407,6 +693,7 @@ button, .button, .buttonAlt {
   color: black;
   border: var(--line) solid lightgrey;
   cursor: not-allowed;
+  filter: contrast(0);
 }
 .button:disabled:hover {
   text-decoration: none;
@@ -414,17 +701,43 @@ button, .button, .buttonAlt {
 
 .button-sticky {
   position: sticky;
-  bottom: 1em;
-  box-shadow: var(--shadow-white);
+  bottom: 0;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 3em auto;
+  padding: 0 1em;
+}
+.button-sticky-small {
+  width: 100%;
+  min-width: unset;
+  border-radius: 100%;
+}
+.button-sticky-big {
+  width: 100%;
 }
 
+.fab {
+  height: 4em;
+  width: 4em;
+  background-color: var(--color-font);
+  position: fixed;
+  bottom: var(--gap);
+  right: var(--padding);
+  border-radius: 100%;
+  box-shadow: var(--shadow-dark);
+  display: none;
+}
+.fab h2 {
+  align-self: center;
+  margin: 0;
+}
 /****************** PROGRESS BARS ******************/
 
 .progress-bar {
   width: 100%;
   height: 1.2em;
   background-color: white;
-  box-shadow: 0 0 0 var(--line) var(--color-impact-translucent);
+  /* box-shadow: 0 0 0 var(--line) var(--color-impact-translucent); */
   border-radius: 50em;
   transition: 0.5s ease;
   text-align: center;
@@ -483,15 +796,14 @@ button, .button, .buttonAlt {
   display: inline-block;
 }
 
-
 .row-space {
-  margin-top: var(--spacing);
-  margin-bottom: var(--spacing);
+  margin-top: var(--gap);
+  margin-bottom: var(--gap);
 }
 
 .row-space-big {
-  margin-top: calc(var(--spacing) * 3);
-  margin-bottom: calc(var(--spacing) * 3);
+  margin-top: calc(var(--gap) * 3);
+  margin-bottom: calc(var(--gap) * 3);
 }
 
 /****************** LAYOUT UTILITY FUNCTIONS ******************/
@@ -501,7 +813,10 @@ button, .button, .buttonAlt {
 }
 
 .tight-padding {
-  padding: 1em;
+  padding: calc(var(--padding) / 2);
+}
+.very-tight-padding {
+  padding: calc(var(--padding) / 4);
 }
 
 .drag-me {
@@ -514,9 +829,8 @@ button, .button, .buttonAlt {
   left: 50%;
   transform: translateX(-50%);
 }
-
 .drag-me div {
-  background-color: lightgrey;
+  background-color: var(--color-medium);
   position: relative;
   margin: 0 auto 0.3em auto;
   width: 100%;
@@ -524,38 +838,235 @@ button, .button, .buttonAlt {
   height: 2px;
   border-radius: 1em;
 }
+.public-private .drag-me {
+  position: absolute;
+  bottom: unset;
+  right: 1em;
+  max-width: 2em;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  left: unset;
+  transform: translateX(0);
+}
+.public-private .drag-me div {
+  background-color: white;
+}
+
+/****************** MODULE FLOW LINE SPECIFIC ******************/
+
+.time-line {
+  height: 1.5px;
+  background-color: var(--color-medium);
+  width: calc(100% + 1em);
+  position: absolute;
+  z-index: 1;
+  margin: 0 0 0 -1em;
+  top:50%;
+  transform: translateY(-50%);
+}
+.timeline:first-child .time-line {
+  width: 50%;
+  right: 0;
+}
+.timeline:last-child .time-line { /* doesnt work */
+  width: 50%;
+  left: 0;
+  background: red;
+}
+.timeline {
+  position: relative;
+}
+.timeline span {
+  background-color: var(--color-bg);
+  width: 1.5em;
+  display: block;
+  z-index: 2;
+  margin: auto;
+  position: relative;
+  color: var(--color-medium);
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+/****************** INTRO ANIMATION SPECIFIC ******************/
+
+#animation {
+  height: 10em;
+  width: 10em;
+  background-color: var(--color-impact);
+  opacity: 0.5;
+  margin: 2em auto;
+  border-radius: 100%;
+  padding: 3em 1em;
+  color: white;
+}
+
+.head-art {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  width: 60%;
+}
+
+.txt-anim-up {
+  line-height: 0;
+  height: auto;
+  max-width: 35em;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+.txt-anim-up p {
+  opacity: 0;
+  transition: line-height .6s ease-in-out;
+  margin: 0;
+  padding: 1em 0;
+}
+.txt-anim-up .anim-target {
+  transition: line-height .9s ease-in-out;
+  line-height: 1.5;
+  opacity: 1;
+  animation-name: opacityCurve;
+	animation-duration: 0.9s;
+}
+
+@keyframes opacityCurve {
+	0% {opacity: 0;}
+	25% {opacity: 0;}
+	50% {opacity: 0.1;}
+	75% {opacity: 0.5;}
+	100% {opacity: 1; }
+}
+
+/****************** COLOUR CLASSES ******************/
+
+.smarterLearning {
+  background-color: var(--color-smarter-learning);
+}
+.strategicThinking {
+  background-color: var(--color-strategic-thinking);
+}
+.infoManagement {
+  background-color: var(--color-info-management);
+}
+.designInnovation {
+  background-color: var(--color-design-innovation);
+}
+.networking {
+  background-color: var(--color-networking);
+}
+.teamwork {
+  background-color: var(--color-teamwork);
+}
+.selfwork {
+  background-color: var(--color-selfwork);
+}
+
+/****************** RESPONSIVE ******************/
 
 @media screen and (min-width: 48em) {
   :root {
-    --tile-padding: 3em;
+    --padding: 3em;
   }
   body {
-    margin-left: calc(3.5em + var(--spacing) + var(--spacing));
+    /* margin-left: calc(3.5em + var(--gap) + var(--gap)); */
     margin-bottom: 0;
-    font-size: 1.5em;
+    font-size: 1em;
     padding-bottom: 0;
   }
 
   .layout {
-    max-width: 45em;
+    /* max-width: 60em; */
     margin: auto;
+    margin-top: 4.5em;
+
+    /* Works on dashboard, but breaks other pages */
+    /* width: -moz-max-content;
+    width: max-content;
+    width: intrinsic;
+    width: -webkit-max-content; */
+  }
+  .two-column-grid.button-grid {
+    max-width: 20em;
+  }
+  .vertical-stack.scrollable-row {
+    flex-direction: column;
+    height: auto;
+  }
+  .pop-up .vertical-stack.scrollable-row {
+    max-width: 25em;
+  }
+  .pop-up .vertical-stack .tile {
+    max-width: unset;
+    width: 100%;
+  }
+  .scrollable-row {
+    padding: 0 var(--padding);
+  }
+  .dynamic-content-panel.two-column-grid {
+    grid-template-columns: max-content auto;
+    grid-template-rows: unset;
+  }
+  .module.two-column-grid .put-after {
+    order: 2;
+  }
+  .vertical-stack .module.two-column-grid {
+    width: 16em;
+    min-width: auto;
+    align-items: center;
+    grid-template-columns: 3em auto;
+    grid-template-rows: unset;
+  }
+  .vertical-stack.scrollable-row .tile {
+    margin: 1em 0.5em;
+  }
+  .dynamic-content-panel .tile.selected .selected-bar {
+    opacity: 1;
+    right: -0.8em;
+    height: 2em;
+    width: 3px;
+  }
+  .dynamic-content-panel .selected-bar {
+    width: 3px;
+    height: 0.5em;
+    top: 50%;
+    transform: translateY(-50%) translateX(0);
+    left: unset;
+    bottom: unset;
+    right: 0;
+  }
+  .pop-up {
+    padding-top: 4em;
+    padding-bottom: var(--padding);
+  }
+  .pop-up .pop-up-nav {
+    top: 0;
+    bottom: unset;
   }
   .toolbar {
     top: 0;
-    left: 0;
-    bottom: 0;
-    width: auto;
-    height: 100%;
+    right: 0;
+    left: unset;
+    bottom: unset;
+    width: 100%;
     padding: 0;
   }
     .tools {
-      grid-template-columns: 1fr;
-      align-content: start;
-      grid-gap: var(--spacing);
-      border-radius: 0;
-      height: 100%;
-      padding: var(--spacing);
+      font-size: 0.9em;
     }
+  .fab {
+    display: grid;
+  }
+  .public-private.two-column-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: unset;
+  }
+  .public-private .scrollable-row {
+    margin: 0;
+  }
+  #mobile-plp-alert {
+    display: none;
+  }
 
   .steps {
     justify-self: center;

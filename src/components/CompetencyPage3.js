@@ -1,13 +1,12 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class CompetencyPage3 extends Component {
   render() {
     return (
       <main className="layout competency">
         <header className="shrink-vertical">
-          <a href="module-start.html" className="button">
-            Save & Quit
-          </a>
+          <Link to="/module" className="button">Quit</Link>
           Module progress (ie, Competency 1 of 4)
         </header>
         <div className="tile grow-vertical">
@@ -30,12 +29,8 @@ class CompetencyPage3 extends Component {
           </p>
         </div>
         <div className="button-sticky">
-          <a href="competency2.html" className="button button-sticky-small">
-            <span />
-          </a>
-          <a href="competency4.html" className="button button-sticky-big">
-            Continue
-          </a>
+          <Link to="/competency/2" className="button button-sticky-small">&lt;</Link>
+          <Link to="/competency/4" className="button button-sticky-big">Continue</Link>
         </div>
       </main>
     );

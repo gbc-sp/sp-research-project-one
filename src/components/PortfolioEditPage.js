@@ -1,4 +1,11 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
+import me from "me.jpg";
+import communication from "communication.svg";
+import selfWork from "selfWork.svg";
+import designInnovation from "designInnovation.svg";
+import infoManagement from "infoManagement.svg";
 
 class PortfolioEditPage extends Component {
   render() {
@@ -12,7 +19,7 @@ class PortfolioEditPage extends Component {
         <div className="tile">
           <div className="bio-grid">
             <div className="bio-image">
-              <img src="img/me.jpg" alt="User name" />
+              <img src={me} alt="User image" />
             </div>
             <h1>Aaron DeRoche</h1>
             <div className="bio-span">
@@ -37,12 +44,12 @@ class PortfolioEditPage extends Component {
           <div>
             <h2 className="very-tight-padding no-vertical-margin">Public</h2>
             <ul className="vertical-stack invert">
-              <li data-id="0" className="tile module two-column-grid selfwork">
+              <li className="tile module two-column-grid selfwork">
                 <div className="put-after">
                   <h4 className="small-margin-bottom">Module</h4>
                   <h3>Self Work</h3>
                 </div>
-                <img src="img/selfWork.svg" alt="" />
+                <img src={selfWork} alt="self work" />
                 <div className="drag-me">
                   <div />
                   <div />
@@ -53,15 +60,12 @@ class PortfolioEditPage extends Component {
                 </div>
                 <div className="selected-bar" />
               </li>
-              <li
-                data-id="3"
-                className="tile module two-column-grid designInnovation"
-              >
+              <li className="tile module two-column-grid designInnovation">
                 <div className="put-after">
                   <h4 className="small-margin-bottom">Module</h4>
                   <h3>Design & Innovation</h3>
                 </div>
-                <img src="img/designInnovation.svg" />
+                <img src={designInnovation} alt="design innovation" />
                 <div className="drag-me">
                   <div />
                   <div />
@@ -78,15 +82,12 @@ class PortfolioEditPage extends Component {
           <div>
             <h2 className="very-tight-padding no-vertical-margin">Private</h2>
             <ul className="vertical-stack dark-bg invert">
-              <li
-                data-id="2"
-                className="tile module two-column-grid networking"
-              >
+              <li className="tile module two-column-grid networking">
                 <div className="put-after">
                   <h4 className="small-margin-bottom">Module</h4>
                   <h3>Communication & Networking</h3>
                 </div>
-                <img src="img/communication.svg" />
+                <img src={communication} alt="communication" />
                 <div className="drag-me">
                   <div />
                   <div />
@@ -112,48 +113,23 @@ class PortfolioEditPage extends Component {
 
           <ul className="check-box-container">
             <li>
-              <input
-                className="check-box"
-                type="checkbox"
-                name="option1"
-                defaultValue="Communication"
-              />
+              <input className="check-box" type="checkbox" name="option1" defaultValue="Communication" />
               <span>Communication</span>
             </li>
             <li>
-              <input
-                className="check-box"
-                type="checkbox"
-                name="option2"
-                defaultValue="Consequences"
-              />
+              <input className="check-box" type="checkbox" name="option2" defaultValue="Consequences"/>
               <span>Cosequences</span>
             </li>
             <li>
-              <input
-                className="check-box"
-                type="checkbox"
-                name="option3"
-                defaultValue="Confidence"
-              />
+              <input className="check-box" type="checkbox" name="option3" defaultValue="Confidence" />
               <span>Confidence</span>
             </li>
             <li>
-              <input
-                className="check-box"
-                type="checkbox"
-                name="option4"
-                defaultValue="Leadership"
-              />
+              <input className="check-box" type="checkbox" name="option4" defaultValue="Leadership" />
               <span>Leadership</span>
             </li>
             <li>
-              <input
-                className="check-box"
-                type="checkbox"
-                name="option5"
-                defaultValue="Conflict Resolution"
-              />
+              <input className="check-box" type="checkbox" name="option5" defaultValue="Conflict Resolution" />
               <span>Conflict resolution</span>
             </li>
           </ul>
@@ -164,9 +140,7 @@ class PortfolioEditPage extends Component {
           <h2>What I can offer a company</h2>
           <input type="text" name="offer" defaultValue="" />
 
-          <a href="portfolio.html" className="button">
-            <span>Save</span>
-          </a>
+          <Link to="/portfolio" className="button"><span>Save</span></Link>
         </div>
       </main>
     );

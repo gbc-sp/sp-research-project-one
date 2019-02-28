@@ -4,7 +4,7 @@ class SignupPage extends Component {
   render() {
     return (
       <main className="layout">
-        <div className="tile">
+        <div className="tile blank">
           <h1>One last step</h1>
           <p>Please signup to access the rest of Skillpod.</p>
         </div>

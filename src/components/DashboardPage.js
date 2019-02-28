@@ -1,65 +1,92 @@
 import React, { Component } from 'react';
 
+import TipsPopup from "TipsPopup";
+import ModulePath from "ModulePath";
+import logoApp from "skillpod-logo-2.svg";
+
+import smarterLearning from "smarterLearning.svg";
+import strategicThinking from "strategicThinking.svg";
+import teamwork from "teamwork.svg";
+import communication from "communication.svg";
+import selfWork from "selfWork.svg";
+import designInnovation from "designInnovation.svg";
+import infoManagement from "infoManagement.svg";
+
 class DashboardPage extends Component {
+
+  state = {
+    tipsPop: false,
+    tiles: [
+      //go to tips pop up
+      {id: 0, name: "Self Work", icon: selfWork, class: "selfwork",
+      progress: 12.5*8, color: "#42C2CF", complete: true, comp: 4 },
+      //current module pos
+      {id: 1, name: "Design & Innovation", icon: designInnovation, class: "designInnovation",
+      progress: 12.5*5, color: "#42C2CF", complete: false, comp: 3 },
+      //disabled, and so on
+      {id: 2, name: "Communication & Networking", icon: communication, class: "networking",
+      progress: 12.5*0, color: "#42C2CF", complete: false, comp: 0 },
+
+      {id: 3, name: "Information Management", icon: infoManagement, class: "infoManagement",
+      progress: 12.5*0, color: "#42C2CF", complete: false, comp: 0 },
+
+      {id: 4, name: "Strategic Thinking", icon: strategicThinking,  class: "strategicThinking",
+      progress: 12.5*0, color: "#42C2CF", complete: false, comp: 0 },
+      //new module
+      {id: 5, name: "Teamwork", icon: teamwork, class: "teamwork",
+      progress: 12.5*0, color: "#42C2CF", complete: false, comp: 0 },
+      //portfolio piece
+      {id: 6, name: "Smarter Learning", icon: smarterLearning, class: "smarterLearning",
+      progress: 12.5*8, color: "#42C2CF", complete: false, comp: 4 }
+    ]
+  }
+
+  constructor(props) {
+    super(props);
+    this.popTips = this.popTips.bind(this);
+  }
+
+  popTips() {
+    console.log("hello");
+    this.setState({tipsPop: true});
+  }
   render() {
     return (
       <main className="layout">
-        <div className="tile blank">
-          <h1>Welcome back!</h1>
+
+        {this.state.tipsPop && <TipsPopup />}
+      
+        <a id="mobile-plp-alert" href="https://plp.skillpod.ca" className="button">Take The PLP</a>
+
+        <div className="tile blank tight-padding no-bottom-padding">
+          <img className="logo-img logo-2" src={ logoApp } />
           <p>Good morning Sherry, here’s your current module progress.</p>
+          <h2>Module Path</h2>
         </div>
 
-        <div className="tile">
-          <h2>Current Goal</h2>
-          <p>I want to have more this in that.</p>
-        </div>
+        <ModulePath tiles={this.state.tiles}/>
 
-        <div className="tile blank">
-          <h1>Module Flow</h1>
-        </div>
-
-        <div className="scrollable-row">
-          <div data-id="0" className="tile module">
-            <img src="img/selfWork.svg" />
-            <h3>Self Work</h3>
-          </div>
-          <div data-id="1" className="tile module selected">
-            <img src="img/teamwork.svg" />
-            <h3>Teamwork</h3>
-          </div>
-          <div data-id="2" className="tile module">
-            <img src="img/communication.svg" />
-            <h3>Communication</h3>
-          </div>
-          <div data-id="3" className="tile module">
-            <img src="img/designInnovation.svg" />
-            <h3>Design & Innovation</h3>
-          </div>
-          <div data-id="4" className="tile module">
-            <img src="img/infoManagement.svg" />
-            <h3>Information Management</h3>
-          </div>
-          <div data-id="5" className="tile module">
-            <img src="img/strategicThinking.svg" />
-            <h3>Strategic Thinking</h3>
-          </div>
-          <div data-id="6" className="tile module">
-            <img src="img/smarterLearning.svg" />
-            <h3>Smarter Learning</h3>
-          </div>
-        </div>
-
-        <div className="tile">
+        <div className="tile blank tight-padding no-vertical-padding">
+          <h1 id="moduleTitleMain">Design & Innovation</h1>
+          <h2 className="big-vertical-margin">Module Progress</h2>
 
           <div className="progress-bar">
             <div id="progressBar" className="progress-amount"></div>
           </div>
-          <a className="button-link" href="module-start.html"><button id="moduleProgressButton" className="button">Continue</button></a>
-          <button id="moduleTipsButton" className="button">Tips & Reflection</button>
+        </div>
 
-          <p>Want us to serve you content in a way that best suits your learning style?</p>
-          <a href="https://plp.skillpod.ca" className="button">Complete Our Learning Style PLP</a>
+        <div className="two-column-grid button-grid">
+          <div className="tile very-tight-padding one-column-grid">
+            <button id="moduleProgressButton" className="button-square center"><span>continue</span></button>
+          </div>
+          <div className="tile very-tight-padding center two-column-grid">
+            <button id="modulePortfolioButton" className="button-square"><span>create</span></button>
+            <button id="moduleTipsButton" className="button-square"><span>recap</span></button>
+          </div>
+        </div>
 
+        <div className="tile">
+          <p>Why do the buttons above break if i remove this?</p>
         </div>
       </main>
     );

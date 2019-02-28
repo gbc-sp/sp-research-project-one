@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import me from "me.jpg";
+import communication from "communication.svg";
+import selfWork from "selfWork.svg";
+import designInnovation from "designInnovation.svg";
+import infoManagement from "infoManagement.svg";
+
+
 class PortfolioDisplayPage extends Component {
   render() {
     return (
@@ -17,7 +24,7 @@ class PortfolioDisplayPage extends Component {
         <div className="tile">
           <div className="bio-grid">
             <div className="bio-image">
-              <img src="img/me.jpg" alt="my profile picture" />
+              <img src={me} alt="my profile picture" />
             </div>
             <h1>Aaron DeRoche</h1>
             <div className="bio-span">
@@ -40,52 +47,36 @@ class PortfolioDisplayPage extends Component {
 
         <div className="dynamic-content-panel two-column-grid">
           <ul className="vertical-stack scrollable-row invert">
-            <li
-              id="examplePP"
-              data-id="0"
-              className="tile module selected two-column-grid selfwork"
-            >
+            <li id="examplePP" className="tile module selected two-column-grid selfwork">
               <div className="put-after">
                 <h4 className="small-margin-bottom">Module</h4>
                 <h3>Self Work</h3>
               </div>
-              <img src="img/selfWork.svg" />
+              <img src={selfWork} />
               <div className="selected-bar" />
             </li>
-            <li
-              id="designInnovation"
-              data-id="3"
-              className="tile module two-column-grid designInnovation"
-            >
+            <li id="designInnovation" className="tile module two-column-grid designInnovation" >
               <div className="put-after">
                 <h4 className="small-margin-bottom">Module</h4>
                 <h3>Design & Innovation</h3>
               </div>
-              <img src="img/designInnovation.svg" />
+              <img src={designInnovation} />
               <div className="selected-bar" />
             </li>
-            <li
-              id="networking"
-              data-id="2"
-              className="tile module two-column-grid networking"
-            >
+            <li id="networking" className="tile module two-column-grid networking">
               <div className="put-after">
                 <h4 className="small-margin-bottom">Module</h4>
                 <h3>Communication & Networking</h3>
               </div>
-              <img src="img/communication.svg" />
+              <img src={communication} />
               <div className="selected-bar" />
             </li>
-            <li
-              id="infoManagement"
-              data-id="4"
-              className="tile module two-column-grid infoManagement"
-            >
+            <li id="infoManagement" className="tile module two-column-grid infoManagement">
               <div className="put-after">
                 <h4 className="small-margin-bottom">Module</h4>
                 <h3>Information Management</h3>
               </div>
-              <img src="img/infoManagement.svg" />
+              <img src={infoManagement} />
               <div className="selected-bar" />
             </li>
           </ul>
