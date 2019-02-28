@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import me from "me.jpg";
+import Sherry from "Sherry.jpg";
 import communication from "communication.svg";
 import selfWork from "selfWork.svg";
 import designInnovation from "designInnovation.svg";
@@ -19,14 +19,14 @@ class PortfolioEditPage extends Component {
         <div className="tile">
           <div className="bio-grid">
             <div className="bio-image">
-              <img src={me} alt="User image" />
+              <img src={Sherry} alt="User image" />
             </div>
-            <h1>Aaron DeRoche</h1>
+            <h1>Sherry DeRoche</h1>
             <div className="bio-span">
               <h2>Bio</h2>
               <input
                 type="text"
-                defaultValue="This is all about me! I'm a person that uses Skillpod, and I love it!"
+                defaultValue="Who are you outside of SKillpod?"
               />
             </div>
             <div className="bio-span">
@@ -113,23 +113,48 @@ class PortfolioEditPage extends Component {
 
           <ul className="check-box-container">
             <li>
-              <input className="check-box" type="checkbox" name="option1" defaultValue="Communication" />
+              <input
+                className="check-box"
+                type="checkbox"
+                name="option1"
+                defaultValue="Communication"
+              />
               <span>Communication</span>
             </li>
             <li>
-              <input className="check-box" type="checkbox" name="option2" defaultValue="Consequences"/>
+              <input
+                className="check-box"
+                type="checkbox"
+                name="option2"
+                defaultValue="Consequences"
+              />
               <span>Cosequences</span>
             </li>
             <li>
-              <input className="check-box" type="checkbox" name="option3" defaultValue="Confidence" />
+              <input
+                className="check-box"
+                type="checkbox"
+                name="option3"
+                defaultValue="Confidence"
+              />
               <span>Confidence</span>
             </li>
             <li>
-              <input className="check-box" type="checkbox" name="option4" defaultValue="Leadership" />
+              <input
+                className="check-box"
+                type="checkbox"
+                name="option4"
+                defaultValue="Leadership"
+              />
               <span>Leadership</span>
             </li>
             <li>
-              <input className="check-box" type="checkbox" name="option5" defaultValue="Conflict Resolution" />
+              <input
+                className="check-box"
+                type="checkbox"
+                name="option5"
+                defaultValue="Conflict Resolution"
+              />
               <span>Conflict resolution</span>
             </li>
           </ul>
@@ -140,7 +165,9 @@ class PortfolioEditPage extends Component {
           <h2>What I can offer a company</h2>
           <input type="text" name="offer" defaultValue="" />
 
-          <Link to="/portfolio" className="button"><span>Save</span></Link>
+          <Link to="/portfolio" className="button">
+            <span>Save</span>
+          </Link>
         </div>
       </main>
     );

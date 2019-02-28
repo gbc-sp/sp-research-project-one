@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import me from "me.jpg";
+import Sherry from "Sherry.jpg";
 import communication from "communication.svg";
 import selfWork from "selfWork.svg";
 import designInnovation from "designInnovation.svg";
 import infoManagement from "infoManagement.svg";
 
-
 class PortfolioDisplayPage extends Component {
   render() {
     return (
-
       <main className="layout">
         <div className="tile blank">
           <h1>Skillpod Portfolio</h1>
@@ -24,19 +22,19 @@ class PortfolioDisplayPage extends Component {
         <div className="tile">
           <div className="bio-grid">
             <div className="bio-image">
-              <img src={me} alt="my profile picture" />
+              <img src={Sherry} alt="my profile picture" />
             </div>
-            <h1>Aaron DeRoche</h1>
+            <h1>Sherry DeRoche</h1>
             <div className="bio-span">
               <h2>Bio</h2>
               <p>
-                This is all about me! I'm a person that uses Skillpod, and I
-                love it!
+                I graduated my undergrad with honours and have always performed
+                well in academics.
               </p>
             </div>
             <div className="bio-span">
               <h2>Contact</h2>
-              <p>abc@def.com</p>
+              <p>sherryderoche@def.com</p>
             </div>
           </div>
         </div>
@@ -47,7 +45,10 @@ class PortfolioDisplayPage extends Component {
 
         <div className="dynamic-content-panel two-column-grid">
           <ul className="vertical-stack scrollable-row invert">
-            <li id="examplePP" className="tile module selected two-column-grid selfwork">
+            <li
+              id="examplePP"
+              className="tile module selected two-column-grid selfwork"
+            >
               <div className="put-after">
                 <h4 className="small-margin-bottom">Module</h4>
                 <h3>Self Work</h3>
@@ -55,7 +56,10 @@ class PortfolioDisplayPage extends Component {
               <img src={selfWork} />
               <div className="selected-bar" />
             </li>
-            <li id="designInnovation" className="tile module two-column-grid designInnovation" >
+            <li
+              id="designInnovation"
+              className="tile module two-column-grid designInnovation"
+            >
               <div className="put-after">
                 <h4 className="small-margin-bottom">Module</h4>
                 <h3>Design & Innovation</h3>
@@ -63,7 +67,10 @@ class PortfolioDisplayPage extends Component {
               <img src={designInnovation} />
               <div className="selected-bar" />
             </li>
-            <li id="networking" className="tile module two-column-grid networking">
+            <li
+              id="networking"
+              className="tile module two-column-grid networking"
+            >
               <div className="put-after">
                 <h4 className="small-margin-bottom">Module</h4>
                 <h3>Communication & Networking</h3>
@@ -71,7 +78,10 @@ class PortfolioDisplayPage extends Component {
               <img src={communication} />
               <div className="selected-bar" />
             </li>
-            <li id="infoManagement" className="tile module two-column-grid infoManagement">
+            <li
+              id="infoManagement"
+              className="tile module two-column-grid infoManagement"
+            >
               <div className="put-after">
                 <h4 className="small-margin-bottom">Module</h4>
                 <h3>Information Management</h3>
@@ -105,27 +115,16 @@ class PortfolioDisplayPage extends Component {
           <h3>Consequences</h3>
           <h2>My Goals</h2>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
+            Being a recent graduate I have been applying to a lot of jobs. I am
+            anxious and feel as though I do not have the confidence I need to
+            succeed. My main goal is to gain confidence in interviews and in the
+            skills I developed in university.
           </p>
           <h2>What I can offer a company is</h2>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
+            I graduated my undergrad with honours and have gained relevent work
+            expereience in placements. I am willing to work harder than most to
+            prove I have the skills neccssary to succeed in my career.
           </p>
         </div>
       </main>
