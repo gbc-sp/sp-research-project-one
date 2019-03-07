@@ -8,6 +8,7 @@ import designInnovation from "designInnovation.svg";
 import infoManagement from "infoManagement.svg";
 
 class PortfolioDisplayPage extends Component {
+  
   render() {
     return (
       <main className="layout">

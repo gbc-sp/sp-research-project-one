@@ -103,8 +103,16 @@ class IndexGoalForm extends Component {
 
                 {/* https://stackoverflow.com/questions/43638938/updating-an-object-with-setstate-in-react */}
                 {/* https://itnext.io/updating-properties-of-an-object-in-react-state-af6260d8e9f5 */}
-                <Select label={this.state.goals.label} options={this.state.goals.options} getValue={(goal) => this.setState({goals: {...this.state.goals, value: goal}})} error={this.state.goals.error} />
-                <Select label={this.state.fields.label} options={this.state.fields.options} getValue={(field) => this.setState({fields: {...this.state.fields, value:field}})} error={this.state.fields.error} />
+                <Select 
+                    label={this.state.goals.label} 
+                    options={this.state.goals.options} 
+                    getValue={(goal) => this.setState({goals: {...this.state.goals, value: goal}})} 
+                    error={this.state.goals.error} />
+                <Select 
+                    label={this.state.fields.label}
+                    options={this.state.fields.options} 
+                    getValue={(field) => this.setState({fields: {...this.state.fields, value:field}})} 
+                    error={this.state.fields.error} />
 
                 <button type="submit" className="button">Begin</button>
             </form>

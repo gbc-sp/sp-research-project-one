@@ -247,10 +247,10 @@ body.no-toolbar {
   padding: var(--padding);
   box-shadow: var(--shadow);
 }
-  .tile :first-child {
+  .tile > :first-child {
     margin-top: 0;
   }
-  .tile :last-child {
+  .tile > :last-child {
     margin-bottom: 0;
   }
 
