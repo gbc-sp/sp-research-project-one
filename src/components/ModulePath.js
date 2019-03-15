@@ -74,7 +74,6 @@ class ModulePath extends Component {
                         {tile.complete && <div className="module-done"><img className="checkmark" src= { checkmark } /></div>}
                         <div><h4 className="small-margin-bottom">Module</h4><h3>{tile.name}</h3></div>
                         <img src={ tile.icon } />
-                        <div className="selected-bar"></div>
                     </div>
                 )
             }

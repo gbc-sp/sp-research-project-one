@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import TipsPopup from "TipsPopup";
-import ModulePath from "ModulePath";
+import SkillTile from "SkillTile";
 import logoApp from "skillpod-logo-2.svg";
 
 import smarterLearning from "smarterLearning.svg";
@@ -56,7 +56,7 @@ class DashboardPage extends Component {
 
         {this.state.tipsPop && <TipsPopup />}
       
-        <a id="mobile-plp-alert" href="https://plp.skillpod.ca" className="button">Take The PLP</a>
+        <Link to="https://plp.skillpod.ca" className="button">Take The PLP</Link>
 
         <div className="tile blank tight-padding no-bottom-padding">
           <img className="logo-img logo-2" src={ logoApp } />
@@ -64,7 +64,23 @@ class DashboardPage extends Component {
           <h2>Module Path</h2>
         </div>
 
-        <ModulePath tiles={this.state.tiles}/>
+        <div className="scrollable-row-double invert">
+
+          <div className="timeline blank center"><span>&#10004;</span><div className="time-line"></div></div>
+          <div className="timeline blank center"><span>2</span><div className="time-line"></div></div>
+          <div className="timeline blank center"><span>3</span><div className="time-line"></div></div>
+          <div className="timeline blank center"><span>4</span><div className="time-line"></div></div>
+          <div className="timeline blank center"><span>5</span><div className="time-line"></div></div>
+          <div className="timeline blank center"><span>6</span><div className="time-line"></div></div>
+          <div className="timeline blank center"><span>7</span><div className="time-line"></div></div>
+
+          {
+            this.state.tiles.map( tile => 
+              <SkillTile tiles={this.state.tiles} />
+            )
+          }
+
+        </div>
 
         <div className="tile blank tight-padding no-vertical-padding">
           <h1 id="moduleTitleMain">Design & Innovation</h1>
