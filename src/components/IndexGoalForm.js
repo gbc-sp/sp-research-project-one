@@ -33,6 +33,7 @@ class IndexGoalForm extends Component {
                 {key:'picturing', option:'Picturing my future'},
                 {key:'effective', option:'Effective communication'},
                 {key:'achieving', option:'Achieving goals'}
+                // Replace all these keys with the Goal.id
             ]
         },
         fields: {
