@@ -15,12 +15,17 @@ import SignupPage from "SignupPage";
 import LoginPage from "LoginPage";
 import HelpPage from "HelpPage";
 import ModuleStartPage from "ModuleStartPage";
+import Recap from "Recap";
+import UserGoals from "UserGoals";
+import CompSelection from "CompSelection";
+import SkillHome from "SkillHome";
+import SignIn from "SignIn";
+import Loading from "Loading";
 
 class App extends Component {
   render() {
     return (
       <Router>
-
         {/* https://medium.freecodecamp.org/hitchhikers-guide-to-react-router-v4-4b12e369d10 */}
         {/* https://codeburst.io/getting-started-with-react-router-5c978f70df91  */}
         {/* https://blog.pshrmn.com/entry/simple-react-router-v4-tutorial/ */}
@@ -29,15 +34,23 @@ class App extends Component {
         <div className="app">
           <nav className="toolbar">
             <ul className="tools">
-              <li className="tool current"><Link to="/dashboard">dashboard</Link><div className="tool-selected"></div></li>
-              <li className="tool"><Link to="/portfolio">portfolio</Link><div className="tool-selected"></div></li>
-              <li></li>
-              <li className="tool"><Link to="/help">help</Link><div className="tool-selected"></div></li>
+              <li className="tool current">
+                <Link to="/dashboard">dashboard</Link>
+                <div className="tool-selected" />
+              </li>
+              <li className="tool">
+                <Link to="/portfolio">portfolio</Link>
+                <div className="tool-selected" />
+              </li>
+              <li />
+              <li className="tool">
+                <Link to="/help">help</Link>
+                <div className="tool-selected" />
+              </li>
             </ul>
           </nav>
 
           {/* <TipsPopup /> */}
-
 
           {/* EVERY URL THAT NEEDS TO BE REGISTERED (PAGES) IS DONE SO HERE */}
           <Route exact path="/" component={IndexPage} />
@@ -53,6 +66,12 @@ class App extends Component {
           <Route path="/competency/2" component={CompetencyPage2} />
           <Route path="/competency/3" component={CompetencyPage3} />
           <Route path="/competency/4" component={CompetencyPage4} />
+          <Route path="/user/goals" component={UserGoals} />
+          <Route path="/recap" component={Recap} />
+          <Route path="/comp/selection" component={CompSelection} />
+          <Route path="/skill/home" component={SkillHome} />
+          <Route path="/loading" component={Loading} />
+          <Route path="/sign/in" component={SignIn} />
         </div>
       </Router>
     ); // end return
