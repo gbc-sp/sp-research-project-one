@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 import TipsPopup from "TipsPopup";
 import SkillTile from "SkillTile";
@@ -76,7 +77,7 @@ class DashboardPage extends Component {
 
           {
             this.state.tiles.map( tile => 
-              <SkillTile tiles={this.state.tiles} />
+              <SkillTile tile={tile} />
             )
           }
 

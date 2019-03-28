@@ -5,7 +5,7 @@ import checkmark from "checkmark.svg";
 class SkillTile extends Component {
 
     state = {
-        tiles: this.props.tiles,
+        tile: this.props.tile,
         lastCompleted: false
     }
 
@@ -44,10 +44,10 @@ class SkillTile extends Component {
 
     render() {
         return (
-            <div key={tile.id} className={'tile module two-column-grid '+ tile.class} onClick={() => {this.decideClick(tile)}}>
-                {tile.complete && <div className="module-done"><img className="checkmark" src= { checkmark } /></div>}
-                <div><h4 className="small-margin-bottom">Module</h4><h3>{tile.name}</h3></div>
-                <img src={ tile.icon } />
+            <div key={this.props.tile.id} className={'tile module two-column-grid '+ this.props.tile.class}>
+                {this.props.tile.complete && <div className="module-done"><img className="checkmark" alt="complete" src= { checkmark } /></div>}
+                <div><h4 className="small-margin-bottom">Module</h4><h3>{this.props.tile.name}</h3></div>
+                <img src={ this.props.tile.icon } />
             </div>
         )
     }
