@@ -25,31 +25,36 @@ class IndexPage extends Component {
   render() {
     return (
       <main className="layout intro">
-        {/* <!-- TILE Component --> */}
-        
-        <p>
-          Already have an account?{" "}
-          <Link to="/login" className="buttonAlt">
-            Login
-          </Link>
-        </p>
 
-        <div className={this.state.visible ? 'tile blank more-tile-padding': 'tile blank more-tile-padding hidden'}>
-          <img className="logo-img" src={ logo } />
-            <div className="txt-anim-up">
-              <p>Prepare to thrive in work and life. Build, demonstrate, and articulate skills critical to working and living in the digital age.</p>
+        <div className="tile blank more-tile-padding">
+          <div className="indexLarge">
+            <div className="logo">
+                <img className="logo-img" src="img/logos/skillpod-logo.svg"/>
+            </div>
+            <div className="graphic first">
+              <img src="img/art/web-art-1.png"/>
+              <h4>The Digital Age</h4>
+              <p>Prepare to thrive in work and life. Build, demonstrate, and articulate skills critical to working and living in the digital age. PUT ALL TEXT HERE ON MOBILE</p>
+            </div>
+            <div className="graphic second">
+              <img src="img/art/web-art-2.png"/>
+              <h4>Entrepreneurial Economy</h4>
               <p>Prepare for employment by honing and sharing your own unique, essential skills required for success in the entrepreneurial economy.</p>
+            </div>
+
+            <div className="graphic third">
+              <img src="img/art/web-art-3.png"/>
+              <h4>Build Your Skills</h4>
               <p>Start building your skills now, with Skillpod.</p>
             </div>
-          <button onClick={ this.handleClick } className="button">Begin</button>
-          <img className="head-art" src={ head } />
+            <div></div>
+            <div className="start">
+                <Link to="/goals.html" className="button">Begin</Link>
+                <Link to="/login.html" className="buttonAlt">I already have an account.</Link>
+            </div>
+            
+          </div>
         </div>
-
-        {/* The goals form */}
-        <div className={this.state.visible ? 'hidden': null}>
-          <IndexGoalForm className="tile" />
-        </div>
-
       </main>
     );
   }

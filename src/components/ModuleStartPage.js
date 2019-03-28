@@ -1,60 +1,75 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import menu from "menu.svg";
+import comp_ico from "competency.svg";
+import back_arrow from "back-arrow.svg";
+
 class ModuleStartPage extends Component {
   render() {
     return (
-      <main className="layout no-toolbar">
-        <div className="tile">
-          <h3 className="txt-impact small-margin-bottom">Module Home</h3>
-          <h1>Smarter Learning</h1>
-          <p>Learning is the change in one's behaviour or knowledge which comes about as a result of experience.</p>
-          <p className="hidden">We all learn in different ways, and sometimes individuals have different methods of learning depending on the job they need to do.<span id="dotdotdot">...</span></p>
-          <p className="hidden">The Skillpod Smarter Learning module is based on understanding yourself as a learner so that you can start to learn faster and design learning in a way that best suits your personal needs. This begins with a self-assessment, the Personal Learning Preferences (PLP) which combines variables such as you Multiple intelligences (MI) strengths with your personal interests and career interests. It helps you learn from past successes and create a process that works best for you.</p>
-          <button className="buttonAlt" type="button" id="read-more">Read more</button>
-        </div>
-
-        <div className="tile blank">
-          <h2 className="lighten">Choose your competency order:</h2>
-        </div>
-
-        <div className="fixed-width-row">
-
-          <div className="tile center selected compSelectors">
-            <h1>1</h1>
-            <div className="drag-me">
-              <div></div><div></div>
+      <main className="layout skill-home">
+        <div>
+          <div className="tile full smarterLearning white-txt make-it-relative">
+            <div className="local-nav">
+              <Link to="/dashboard.html"><img src={back_arrow} className="back-icon" alt="back icon"/></Link>
+              <Link to=""><img src={menu} className="menu-icon" alt="menu icon"/></Link>
             </div>
-          </div>
-          <div className="tile center compSelectors">
-            <h1>2</h1>
-            <div className="drag-me">
-              <div></div><div></div>
+            <div className="bring-forward skill-info">
+              <h1>Smarter Learning</h1>
+              <h5>Anything and everything Smarter Learning.</h5>
+              <p>Learning is the change in one's behaviour or knowledge which comes about as a result of experience.</p>
+              <p>We all learn in different ways, and sometimes individuals have different methods of learning depending on the job they need to do.</p>
+              <ul>
+                <h2>What Employers Value</h2>
+                <li>willingness to learn</li>
+                <li>resilience</li>
+                <li>recourcefulness</li>
+                <li>adaptability</li>
+                <li>learns effectively from others</li>
+              </ul>
             </div>
-          </div>
-          <div className="tile center compSelectors">
-            <h1>3</h1>
-            <div className="drag-me">
-              <div></div><div></div>
+            <div className="skill-progress">
+                <h6>Progress</h6>
+                <div className="prog-bar light">
+                    <h3 className="complete">1</h3>
+                    <h3 className="complete">2</h3>
+                    <h3 className="active">3</h3>
+                    <h3>4</h3>
+                </div>
+              </div>
+            <div className="begin-module">
+              <Link to="/competency/1" className="button">Begin</Link>
             </div>
-          </div>
-          <div className="tile center compSelectors">
-            <h1>4</h1>
-            <div className="drag-me">
-              <div></div><div></div>
-            </div>
-          </div>
-        </div>
 
-        <div className="tile blank">
-            <h2 id="compInfoTitle"></h2>
-            <p id="compInfoContent"></p>
-        </div>
-        <div className="button-sticky">
-          <Link to="/dashboard" className="button button-sticky-small"><span>&lt;</span></Link>
-          <Link to="/competency/1" className="button button-sticky-big">Start Module</Link>
-        </div>
-      </main>
+            <img src="img/icons/skills/smarterLearning.svg" className="module-background-icon" alt="Smarter Learning background image"/>
+
+          </div>
+
+          </div>
+          <div>
+          <div className="tile full module-snug-top bring-forward">
+              <div className="comp-breakdown-grid">
+                <img src={comp_ico} alt="chapters icon"/>
+                <div>
+                  <h1>Chapter Breakdowns</h1>
+                  <h5>Explainations of the Smarter Learning chapters.</h5>
+                </div>
+              </div>
+              <div className="more-top-padding">
+                <h4>Knowing yourself as a learner.</h4>
+                <p>Complete the Personal Learning Profile to get a more in depth understanding of your learning preferences. The better you know yourself, the smarter and faster you can learn.</p>
+                <h4>Cultivating a growth mindset.</h4>
+                <p>A growth mindset is more than being open-minded. It is a belief that you,as an individual are capable of improving if consistent effort is applied. These individuals are less concerned with proving themselves than about improving.</p>
+                <h4>Aclieving your goals.</h4>
+                <p>Creating well defined goals will help structure your learning.</p>
+                <h4>Harnessing the power of failure.</h4>
+                <p>Fear of failure prevents learning. Failure must be reframed as an opportunity for learning.</p>
+              </div>
+            </div>
+
+          </div>
+        </main>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import checkmark from "checkmark.svg";
+import lock from "locked.svg";
 
 class SkillTile extends Component {
 
@@ -44,10 +45,28 @@ class SkillTile extends Component {
 
     render() {
         return (
-            <div key={tile.id} className={'tile module two-column-grid '+ tile.class} onClick={() => {this.decideClick(tile)}}>
-                {tile.complete && <div className="module-done"><img className="checkmark" src= { checkmark } /></div>}
-                <div><h4 className="small-margin-bottom">Module</h4><h3>{tile.name}</h3></div>
-                <img src={ tile.icon } />
+            <div key={tile.id} className={"tile module skill-grid "+ tile.class} onClick={() => {this.decideClick(tile)}}>
+                <div>
+                <div>
+                    <h6 className="small-margin-bottom">Skill</h6>
+                    <h1>{tile.name}</h1>
+                </div>
+                <div className="module-done"> {tile.complete ? <img className="checkmark" src= { checkmark }/> : <img className="checkmark" src= { lock } />} </div>
+                </div>
+                <img className="skill-icon" src={ tile.icon }/>
+                <div className="two-column-grid align-center">
+                <div className="skill-progress">
+                    <h6>Progress</h6>
+                    <div className="prog-bar">
+                    {/* Needs logic */}
+                        <h3 className="complete">1</h3>
+                        <h3 className="complete">2</h3>
+                        <h3 className="active">3</h3>
+                        <h3>4</h3>
+                    </div>
+                </div>
+                <button className="button">Go</button>
+                </div>
             </div>
         )
     }

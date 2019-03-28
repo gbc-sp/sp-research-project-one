@@ -15,6 +15,11 @@ import SignupPage from "SignupPage";
 import LoginPage from "LoginPage";
 import HelpPage from "HelpPage";
 import ModuleStartPage from "ModuleStartPage";
+import Goals from "Goals";
+
+import dashboard_ico from "dashboard.svg";
+import portfolio_ico from "portfolio.svg";
+import logo from "skillpod-logo.svg";
 
 class App extends Component {
   render() {
@@ -29,10 +34,20 @@ class App extends Component {
         <div className="app">
           <nav className="toolbar">
             <ul className="tools">
-              <li className="tool current"><Link to="/dashboard">dashboard</Link><div className="tool-selected"></div></li>
-              <li className="tool"><Link to="/portfolio">portfolio</Link><div className="tool-selected"></div></li>
+              <li className="tool logo"><img src={logo} /></li>
               <li></li>
-              <li className="tool"><Link to="/help">help</Link><div className="tool-selected"></div></li>
+              <li className="tool current"><Link to="dashboard.html"><img src={dashboard_ico} /><span>dashboard</span></Link></li>
+              <li className="tool"><Link to="portfolio.html"><img src={portfolio_ico} /><span>portfolio</span></Link></li>
+              <li className="tool more">
+                <h4>Want to know <br/>yourself better?</h4>
+                <h5>Take the PLP, a personalized learning profile quiz.</h5>
+                <Link className="button light" target="_blank" to="https://plp.skillpod.ca">Learning Profile</Link>
+              </li>
+              <li className="tool more">
+                <Link target="_blank" to="/help.html">More Help</Link>
+                <Link target="_blank" to="https://skillpod.ca">Skillpod Organization</Link>
+                <h5>Copyright Info Here, 2019 ©</h5>
+              </li>
             </ul>
           </nav>
 
@@ -41,6 +56,7 @@ class App extends Component {
 
           {/* EVERY URL THAT NEEDS TO BE REGISTERED (PAGES) IS DONE SO HERE */}
           <Route exact path="/" component={IndexPage} />
+          <Route exact path="/yourgoal" component={Goals} />
           <Route path="/dashboard" component={DashboardPage} />
           <Route exact path="/portfolio" component={PortfolioDisplayPage} />
           <Route path="/portfolio/create" component={PortfolioCreatePage} />
@@ -48,7 +64,7 @@ class App extends Component {
           <Route path="/help" component={HelpPage} />
           <Route path="/signup" component={SignupPage} />
           <Route path="/login" component={LoginPage} />
-          <Route path="/module" component={ModuleStartPage} />
+          <Route path="/skill" component={ModuleStartPage} /> {/*put literal skill name here*/}
           <Route exact path="/competency/1" component={CompetencyPage1} />
           <Route path="/competency/2" component={CompetencyPage2} />
           <Route path="/competency/3" component={CompetencyPage3} />

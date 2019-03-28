@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 import TipsPopup from "TipsPopup";
 import SkillTile from "SkillTile";
+import HeadProgress from "HeadProgress";
 import logoApp from "skillpod-logo-2.svg";
 
 import smarterLearning from "smarterLearning.svg";
@@ -52,58 +54,74 @@ class DashboardPage extends Component {
   }
   render() {
     return (
-      <main className="layout">
 
-        {this.state.tipsPop && <TipsPopup />}
+      <main class="layout dashboard">
       
-        <Link to="https://plp.skillpod.ca" className="button">Take The PLP</Link>
+        {this.state.tipsPop && <TipsPopup />}
 
-        <div className="tile blank tight-padding no-bottom-padding">
-          <img className="logo-img logo-2" src={ logoApp } />
-          <p>Good morning Sherry, here’s your current module progress.</p>
-          <h2>Module Path</h2>
+        <div class="tile no-shadow no-bottom-padding">
+          <h1>Dashboard</h1>
+          <h5>Welcome back, Sherry.</h5>
+          <h4>Skill Path</h4>
         </div>
-
-        <div className="scrollable-row-double invert">
-
-          <div className="timeline blank center"><span>&#10004;</span><div className="time-line"></div></div>
-          <div className="timeline blank center"><span>2</span><div className="time-line"></div></div>
-          <div className="timeline blank center"><span>3</span><div className="time-line"></div></div>
-          <div className="timeline blank center"><span>4</span><div className="time-line"></div></div>
-          <div className="timeline blank center"><span>5</span><div className="time-line"></div></div>
-          <div className="timeline blank center"><span>6</span><div className="time-line"></div></div>
-          <div className="timeline blank center"><span>7</span><div className="time-line"></div></div>
-
+    
+        <div id="setBackgroundGradient" class="scrollable-row">
           {
             this.state.tiles.map( tile => 
               <SkillTile tiles={this.state.tiles} />
             )
           }
-
+          
         </div>
-
-        <div className="tile blank tight-padding no-vertical-padding">
-          <h1 id="moduleTitleMain">Design & Innovation</h1>
-          <h2 className="big-vertical-margin">Module Progress</h2>
-
-          <div className="progress-bar">
-            <div id="progressBar" className="progress-amount"></div>
+    
+        <div class="skill-navigation">
+          <div class="skill-nav-buttons">
+            <button class="round"><img src="img/icons/backward-arrow.svg"/></button>
+            <button class="round"><img src="img/icons/forward-arrow.svg"/></button>
           </div>
         </div>
-
-        <div className="two-column-grid button-grid">
-          <div className="tile very-tight-padding one-column-grid">
-            <button id="moduleProgressButton" className="button-square center"><span>continue</span></button>
+    
+        <div class="tile trophies">
+          
+          <div>
+            <h4>Completed Skills</h4>
+            <h5>Recap on skills you’ve completed.</h5>
+            <div class="scrollable-row trophy-case">
+              <div class="mini-module module selfwork">
+                  <img src="img/icons/skills/selfWork.svg"/>
+              </div>
+              <div class="mini-module module infoManagement">
+                <img src="img/icons/skills/infoManagement.svg"/>
+              </div>
+            </div>
           </div>
-          <div className="tile very-tight-padding center two-column-grid">
-            <button id="modulePortfolioButton" className="button-square"><span>create</span></button>
-            <button id="moduleTipsButton" className="button-square"><span>recap</span></button>
+    
+          <div>
+            <h4>Progress</h4>
+            <h5>All your Skillpod progress in one spot.</h5>
+            <HeadProgress />
           </div>
+    
+          <div class="footer-grid">
+            <section>
+              <h1>Want to know yourself better?</h1>
+              <h2>Take the PLP, a personalized learning profile quiz.</h2>
+              <Link class="button" target="_blank" to="https://plp.skillpod.ca">Learning Profile</Link>
+            </section>
+            <section>
+                <h1>Get extra help.</h1>
+                <h2>Tips, Tools, and FAQ.</h2>
+                <Link class="button" to="/help.html">Help</Link>
+              </section>
+            <section>
+              <h1>More about Skillpod.</h1>
+              <h2>Read more about the organization.</h2>
+              <Link class="button" target="_blank" to="https://skillpod.ca">Skillpod</Link>
+            </section>
+          </div>
+    
         </div>
-
-        <div className="tile">
-          <p>Why do the buttons above break if i remove this?</p>
-        </div>
+    
       </main>
     );
   }
