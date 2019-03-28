@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import menu from "menu.svg";
-import comp_ico from "competency.svg";
-import back_arrow from "back-arrow.svg";
+import menu from "icons/menu.svg";
+import comp_ico from "icons/competency.svg";
+import back_arrow from "icons/back-arrow.svg";
+import smarterLearning from "icons/skills/smarterLearning.svg";
 
 class ModuleStartPage extends Component {
   render() {
@@ -12,7 +13,7 @@ class ModuleStartPage extends Component {
         <div>
           <div className="tile full smarterLearning white-txt make-it-relative">
             <div className="local-nav">
-              <Link to="/dashboard.html"><img src={back_arrow} className="back-icon" alt="back icon"/></Link>
+              <Link to="/dashboard"><img src={back_arrow} className="back-icon" alt="back icon"/></Link>
               <Link to=""><img src={menu} className="menu-icon" alt="menu icon"/></Link>
             </div>
             <div className="bring-forward skill-info">
@@ -42,7 +43,7 @@ class ModuleStartPage extends Component {
               <Link to="/competency/1" className="button">Begin</Link>
             </div>
 
-            <img src="img/icons/skills/smarterLearning.svg" className="module-background-icon" alt="Smarter Learning background image"/>
+            <img src={smarterLearning} className="module-background-icon" alt="Smarter Learning background image"/>
 
           </div>
 

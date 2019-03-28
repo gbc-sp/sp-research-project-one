@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
-import checkmark from "checkmark.svg";
-import lock from "locked.svg";
+import checkmark from "icons/checkmark.svg";
+import lock from "icons/locked.svg";
 
 class SkillTile extends Component {
 
     state = {
-        tiles: this.props.tiles,
+        tile: this.props.tile,
         lastCompleted: false
     }
 
@@ -45,15 +46,15 @@ class SkillTile extends Component {
 
     render() {
         return (
-            <div key={tile.id} className={"tile module skill-grid "+ tile.class} onClick={() => {this.decideClick(tile)}}>
+            <div className={`tile module skill-grid ${this.props.tile.class} ${(this.props.tile.complete ? "complete" : (!this.props.tile.comp) && "disabled")}`}>
                 <div>
                 <div>
                     <h6 className="small-margin-bottom">Skill</h6>
-                    <h1>{tile.name}</h1>
+                    <h1>{this.props.tile.name}</h1>
                 </div>
-                <div className="module-done"> {tile.complete ? <img className="checkmark" src= { checkmark }/> : <img className="checkmark" src= { lock } />} </div>
+                <div className="module-done"> {this.props.tile.complete ? <img className="checkmark" alt="complete" src={ checkmark }/> : (!this.props.tile.comp) && <img alt="locked" src={ lock } />} </div>
                 </div>
-                <img className="skill-icon" src={ tile.icon }/>
+                <img className="skill-icon" src={ this.props.tile.icon }/>
                 <div className="two-column-grid align-center">
                 <div className="skill-progress">
                     <h6>Progress</h6>
@@ -65,7 +66,7 @@ class SkillTile extends Component {
                         <h3>4</h3>
                     </div>
                 </div>
-                <button className="button">Go</button>
+                <Link to="/skill" className="button">Go</Link>
                 </div>
             </div>
         )

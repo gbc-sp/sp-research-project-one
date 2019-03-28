@@ -398,6 +398,7 @@ body.no-toolbar {
 }
 #setBackgroundGradient {
   background: var(--color-smarter-learning);
+  background: linear-gradient(var(--color-light), rgba(20,150,135,0.2));
 }
 .scrollable-row .tile {
   flex: 0 0 auto;
@@ -552,7 +553,7 @@ body.no-toolbar {
   z-index: 2;
   display: grid;
   height: 100%;
-  align-items: end;
+  align-items: center;
 }
 .skill-grid > :first-child {
   align-items: end;

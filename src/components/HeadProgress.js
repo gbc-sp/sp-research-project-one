@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import halfHead from "just-head.svg";
+import halfHead from "logos/just-head.svg";
 
 class HeadProgress extends Component {
 
@@ -10,48 +10,48 @@ class HeadProgress extends Component {
 
     render() {
         return (
-            <div class="head-progress">
-              <div class="one-skill">
-                <div class="one-comp"></div>
-                <div class="one-comp"></div>
-                <div class="one-comp"></div>
-                <div class="one-comp"></div>
+            <div className="head-progress">
+              <div className="one-skill">
+                <div className="one-comp"></div>
+                <div className="one-comp"></div>
+                <div className="one-comp"></div>
+                <div className="one-comp"></div>
               </div>
-              <div class="one-skill complete">
-                <div class="one-comp active"></div>
-                <div class="one-comp active"></div>
-                <div class="one-comp active"></div>
-                <div class="one-comp active"></div>
+              <div className="one-skill complete">
+                <div className="one-comp active"></div>
+                <div className="one-comp active"></div>
+                <div className="one-comp active"></div>
+                <div className="one-comp active"></div>
               </div>
-              <div class="one-skill">
-                <div class="one-comp"></div>
-                <div class="one-comp"></div>
-                <div class="one-comp"></div>
-                <div class="one-comp"></div>
+              <div className="one-skill">
+                <div className="one-comp"></div>
+                <div className="one-comp"></div>
+                <div className="one-comp"></div>
+                <div className="one-comp"></div>
               </div>
-              <div class="one-skill complete">
-                <div class="one-comp active"></div>
-                <div class="one-comp active"></div>
-                <div class="one-comp active"></div>
-                <div class="one-comp active"></div>
+              <div className="one-skill complete">
+                <div className="one-comp active"></div>
+                <div className="one-comp active"></div>
+                <div className="one-comp active"></div>
+                <div className="one-comp active"></div>
               </div>
-              <div class="one-skill">
-                <div class="one-comp"></div>
-                <div class="one-comp"></div>
-                <div class="one-comp"></div>
-                <div class="one-comp"></div>
+              <div className="one-skill">
+                <div className="one-comp"></div>
+                <div className="one-comp"></div>
+                <div className="one-comp"></div>
+                <div className="one-comp"></div>
               </div>
-              <div class="one-skill">
-                <div class="one-comp"></div>
-                <div class="one-comp"></div>
-                <div class="one-comp active"></div>
-                <div class="one-comp active"></div>
+              <div className="one-skill">
+                <div className="one-comp"></div>
+                <div className="one-comp"></div>
+                <div className="one-comp active"></div>
+                <div className="one-comp active"></div>
               </div>
-              <div class="one-skill">
-                <div class="one-comp"></div>
-                <div class="one-comp"></div>
-                <div class="one-comp"></div>
-                <div class="one-comp"></div>
+              <div className="one-skill">
+                <div className="one-comp"></div>
+                <div className="one-comp"></div>
+                <div className="one-comp"></div>
+                <div className="one-comp"></div>
               </div>
               <img src={ halfHead }/>
             </div>

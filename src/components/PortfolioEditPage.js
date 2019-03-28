@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import me from "me.jpg";
-import communication from "communication.svg";
-import selfWork from "selfWork.svg";
-import designInnovation from "designInnovation.svg";
-import infoManagement from "infoManagement.svg";
+import me from "user/me.jpg";
+import communication from "icons/skills/communication.svg";
+import selfWork from "icons/skills/selfWork.svg";
+import designInnovation from "icons/skills/designInnovation.svg";
 
 class PortfolioEditPage extends Component {
   render() {
@@ -153,7 +152,7 @@ class PortfolioEditPage extends Component {
           <h2>What I can offer a company</h2>
           <textarea placeholder="Type here..."></textarea>
     
-          <Link href="portfolio.html" className="button"><span>Save</span></Link>
+          <Link href="/portfolio" className="button"><span>Save</span></Link>
         </div>
       </main>
     );

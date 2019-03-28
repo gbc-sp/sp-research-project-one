@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
-import designInnovation from "designInnovation.svg";
+import designInnovation from "icons/skills/designInnovation.svg";
 
 class TipsPopup extends Component {
   render() {
@@ -10,10 +11,10 @@ class TipsPopup extends Component {
         <div className="pop-up-nav">
           <nav className="toolbar">
             <ul className="tools">
-              <li className="tool current"><a href="javascript:">tips</a><div className="tool-selected"></div></li>
-              <li className="tool"><a href="javascript:">reflection</a><div className="tool-selected"></div></li>
+              <li className="tool current"><Link to="javascript:">tips</Link><div className="tool-selected"></div></li>
+              <li className="tool"><Link to="javascript:">reflection</Link><div className="tool-selected"></div></li>
               <li></li>
-              <li className="tool" id="tipsClose"><a href="javascript:">close</a><div className="tool-selected"></div></li>
+              <li className="tool" id="tipsClose"><Link to="javascript:">close</Link><div className="tool-selected"></div></li>
             </ul>
           </nav>
         </div>

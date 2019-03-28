@@ -17,9 +17,9 @@ import HelpPage from "HelpPage";
 import ModuleStartPage from "ModuleStartPage";
 import Goals from "Goals";
 
-import dashboard_ico from "dashboard.svg";
-import portfolio_ico from "portfolio.svg";
-import logo from "skillpod-logo.svg";
+import dashboard_ico from "icons/dashboard.svg";
+import portfolio_ico from "icons/portfolio.svg";
+import logo from "logos/skillpod-logo-head.svg";
 
 class App extends Component {
   render() {
@@ -44,7 +44,7 @@ class App extends Component {
                 <Link className="button light" target="_blank" to="https://plp.skillpod.ca">Learning Profile</Link>
               </li>
               <li className="tool more">
-                <Link target="_blank" to="/help.html">More Help</Link>
+                <Link target="_blank" to="/help">More Help</Link>
                 <Link target="_blank" to="https://skillpod.ca">Skillpod Organization</Link>
                 <h5>Copyright Info Here, 2019 ©</h5>
               </li>

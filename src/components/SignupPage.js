@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import logo from "logos/skillpod-logo-head.svg";
+
 class SignupPage extends Component {
   render() {
     return (
         <main className="layout">
           <div className="tile blank">
             <div className="bio-grid">
-              <img src="img/logos/skillpod-logo-head.svg"/>
+              <img src={logo}/>
               <div>
                   <h1>One last step</h1>
                   <h5>Please signup to access the rest of Skillpod.</h5>
@@ -52,7 +54,8 @@ class SignupPage extends Component {
               <option value="one">Onboarding at work</option>
               <option value="two">Looking to advance at work</option>
             </select>
-            <Link className="button">Submit</Link>
+            {/* CONFIRM CONSET POP UP BEFORE THIS */}
+            <Link to="/dashboard" className="button">Submit</Link>
           </div>
         </main>
     );

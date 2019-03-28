@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import menu from "menu.svg";
-import tips_ico from "tips.svg";
-import back_arrow from "back-arrow.svg";
+import menu from "icons/menu.svg";
+import tips_ico from "icons/tips.svg";
+import back_arrow from "icons/back-arrow.svg";
 
 class CompetencyPage1 extends Component {
   render() {
@@ -11,7 +11,7 @@ class CompetencyPage1 extends Component {
       <main class="layout">
         <div className="tile full smarterLearning white-txt">
           <div className="local-nav">
-            <Link to="/dashboard.html"><img src={back_arrow} className="back-icon" alt="back icon"/></Link>
+            <Link to="/dashboard"><img src={back_arrow} className="back-icon" alt="back icon"/></Link>
             <Link to="javascript:"><img src={menu} className="menu-icon" alt="menu icon"/></Link>
           </div>
           <h1>Smarter Learning</h1>
@@ -20,8 +20,8 @@ class CompetencyPage1 extends Component {
     
         <div className="tabs">
           <h2 className="tab selected">Scenario</h2>
-          <Link to="/analysis.html"><h2 className="tab disabled">Analysis</h2></Link>
-          <Link to="/reflection.html"><h2 className="tab disabled">Reflection</h2></Link>
+          <Link to="/analysis"><h2 className="tab disabled">Analysis</h2></Link>
+          <Link to="/reflection"><h2 className="tab disabled">Reflection</h2></Link>
         </div>
     
         <div className="tile full scenario">
