@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, withRouter } from "react-router-dom";
-import Select from "Select";
+import Select from "utility/Select";
 
 // NOTE: In general, this is a fairly inefficient way to structure a form component.
 // Ideally, we would abstract the functionality of the form to also make it reusable.

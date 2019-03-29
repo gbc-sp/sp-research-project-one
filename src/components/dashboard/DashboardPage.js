@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
 import TipsPopup from "TipsPopup";
-import SkillTile from "SkillTile";
-import HeadProgress from "HeadProgress";
+import SkillTile from "dashboard/SkillTile";
+import MiniSkillTile from "dashboard/MiniSkillTile";
+import HeadProgress from "dashboard/HeadProgress";
 
 import smarterLearning from "icons/skills/smarterLearning.svg";
 import strategicThinking from "icons/skills/strategicThinking.svg";
@@ -49,6 +50,7 @@ class DashboardPage extends Component {
   constructor(props) {
     super(props);
     this.popTips = this.popTips.bind(this);
+    this.navigateSkills = this.navigateSkills.bind(this);
   }
 
   popTips() {
@@ -85,8 +87,8 @@ class DashboardPage extends Component {
     
         <div className="skill-navigation">
           <div className="skill-nav-buttons">
-            <button className="round" onClick={navigateSkills}><img src={nav_back}/></button>
-            <button className="round" onClick={navigateSkills}><img src={nav_forward}/></button>
+            <button className="round" onClick={this.navigateSkills}><img alt="back one skill icon" src={nav_back}/></button>
+            <button className="round" onClick={this.navigateSkills}><img alt="forward one skill icon" src={nav_forward}/></button>
           </div>
         </div>
     
@@ -97,18 +99,10 @@ class DashboardPage extends Component {
             <h5>Recap on skills you’ve completed.</h5>
             <div className="scrollable-row trophy-case">
               {
-                this.state.tiles.complete.map( tile => 
-                  // <SkillTile tile={tile} key={tile.id}/>
-                  console.log("counting")
-                  
-                )
+                this.state.tiles.filter (tile => tile.complete).map(tile => 
+                  <MiniSkillTile tile={tile} key={tile.id}/>
+                ) 
               }
-              <div className="mini-module module selfwork">
-                  <img src={selfWork}/>
-              </div>
-              <div className="mini-module module infoManagement">
-                <img src={infoManagement}/>
-              </div>
             </div>
           </div>
     
@@ -122,7 +116,7 @@ class DashboardPage extends Component {
             <section>
               <h1>Want to know yourself better?</h1>
               <h2>Take the PLP, a personalized learning profile quiz.</h2>
-              <Link className="button" target="_blank" to="https://plp.skillpod.ca">Learning Profile</Link>
+              <a className="button" rel="noopener" target="_blank" href="https://plp.skillpod.ca">Learning Profile</a>
             </section>
             <section>
                 <h1>Get extra help.</h1>
@@ -132,7 +126,7 @@ class DashboardPage extends Component {
             <section>
               <h1>More about Skillpod.</h1>
               <h2>Read more about the organization.</h2>
-              <Link className="button" target="_blank" to="https://skillpod.ca">Skillpod</Link>
+              <a className="button" rel="noopener" target="_blank" href="https://skillpod.ca">Skillpod</a>
             </section>
           </div>
     

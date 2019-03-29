@@ -5,13 +5,13 @@ import menu from "icons/menu.svg";
 import tips_ico from "icons/tips.svg";
 import back_arrow from "icons/back-arrow.svg";
 
-class CompetencyPage1 extends Component {
+class CompetencyPage extends Component {
   render() {
     return (
       <main class="layout">
         <div className="tile full smarterLearning white-txt">
           <div className="local-nav">
-            <Link to="/dashboard"><img src={back_arrow} className="back-icon" alt="back icon"/></Link>
+            <Link to="/dashboard"><img src={back_arrow} className="back-icon" alt="page back icon"/></Link>
             <Link to="javascript:"><img src={menu} className="menu-icon" alt="menu icon"/></Link>
           </div>
           <h1>Smarter Learning</h1>
@@ -59,4 +59,4 @@ class CompetencyPage1 extends Component {
   }
 }
 
-export default CompetencyPage1;
+export default CompetencyPage;

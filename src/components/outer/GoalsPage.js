@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import IndexGoalForm from "IndexGoalForm";
+import IndexGoalForm from "outer/IndexGoalForm";
 import { Link } from "react-router-dom";
 
-class Goals extends Component {
+class GoalsPage extends Component {
 
   constructor(props) {
     super(props);
@@ -49,4 +49,4 @@ class Goals extends Component {
   }
 }
 
-export default Goals;
+export default GoalsPage;

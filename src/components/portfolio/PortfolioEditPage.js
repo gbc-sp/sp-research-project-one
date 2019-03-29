@@ -19,7 +19,7 @@ class PortfolioEditPage extends Component {
           <section className="portfolio-bio two-column-grid">
     
             <div className="profile-image">
-              <img src={me}/>
+              <img alt="It's you!" src={me}/>
               <div className="hero-info">
                   <h1 className="white-txt">Brent Chad</h1>
                   <div className="tags">
@@ -53,19 +53,24 @@ class PortfolioEditPage extends Component {
           </section>
         </div>
     
-        <div className="tile blank no-bottom-padding">
+        <div className="tile blank">
           <h1>Portfolio Pieces</h1>
-          <h2 className="no-vertical-margin">Public</h2>
         </div>
     
         <div className="two-column-grid public-private">
+          <div>
+            
+            <div className="tile blank no-vertical-padding">
+              <h2 className="no-vertical-margin">Public</h2>
+            </div>
+            
             <ul className="vertical-stack invert">
               <li className="tile module two-column-grid selfwork">
                 <div className="put-after">
                   <h4 className="small-margin-bottom">Module</h4>
                   <h3>Self Work</h3>
                 </div>
-                <img src={selfWork}/>
+                <img alt="skill icon" src={selfWork}/>
                 <div className="drag-me">
                   <div></div><div></div>
                 </div>
@@ -79,7 +84,7 @@ class PortfolioEditPage extends Component {
                   <h4 className="small-margin-bottom">Module</h4>
                   <h3>Design & Innovation</h3>
                 </div>
-                <img src={designInnovation}/>
+                <img alt="skill icon" src={designInnovation}/>
                 <div className="drag-me">
                   <div></div><div></div>
                 </div>
@@ -89,19 +94,20 @@ class PortfolioEditPage extends Component {
                 </div>
               </li>
             </ul>
+          </div>
+          <div>
             
             <div className="tile blank no-vertical-padding">
                 <h2 className="no-vertical-margin">Private</h2>
             </div>
     
-            
             <ul className="vertical-stack dark-bg invert">
               <li data-id="2" className="tile module two-column-grid networking">
                 <div className="put-after">
                   <h4 className="small-margin-bottom">Module</h4>
                   <h3>Communication & Networking</h3>
                 </div>
-                <img src={communication}/>
+                <img alt="skill icon" src={communication}/>
                 <div className="drag-me">
                   <div></div><div></div>
                 </div>
@@ -111,6 +117,7 @@ class PortfolioEditPage extends Component {
                 </div>
               </li>
             </ul>
+          </div>
         </div>
     
         <div className="tile blank">
@@ -152,7 +159,7 @@ class PortfolioEditPage extends Component {
           <h2>What I can offer a company</h2>
           <textarea placeholder="Type here..."></textarea>
     
-          <Link href="/portfolio" className="button"><span>Save</span></Link>
+          <Link to="/portfolio" className="button"><span>Save</span></Link>
         </div>
       </main>
     );

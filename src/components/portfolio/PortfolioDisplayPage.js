@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import PortfolioThumbs from "portfolio/PortfolioThumbs";
+import CurrentPortfolioPiece from "portfolio/CurrentPortfolioPiece";
+
 import me from "user/me.jpg";
 import portfolio_hero from "user/portfolio/infoManagement/hero.jpg";
 import back_arrow from "icons/back-arrow.svg";
@@ -10,14 +13,58 @@ import selfWork from "icons/skills/selfWork.svg";
 import designInnovation from "icons/skills/designInnovation.svg";
 import infoManagement from "icons/skills/infoManagement.svg";
 
+import infoManagementPortfolio from "user/portfolio/infoManagement/hero.jpg";
+
 
 class PortfolioDisplayPage extends Component {
+  
+  state = {
+    portfolioPieces: [
+      {
+        "id":1,
+        "title": `My Professional Image`,
+        "skill": {
+          "id":3,
+          "name":`Information Management`,
+          "icon":infoManagement,
+          "class":`infoManagement`
+        },
+        "content":`Information Management is crucial for me as a recent graduate looking for work. While talking to a prospective employer, she told me that she found a link to a number of YouTube videos that I had created when I was younger. This was not the professional image that I hoped to share. As a result, I have carefully searched and changed privacy settings on my social media to make sure that I have managed my personal image. I know that care and attention to privacy is important for me and for those around me and also will reflect on how I care about the company and colleagues where I work.`,
+        "img":infoManagementPortfolio
+      },
+      {
+        "id":2,
+        "title": `Working on Myself`,
+        "skill": {
+          "id":1,
+          "name":`Selfwork`,
+          "icon":selfWork,
+          "class":`selfwork`
+        },
+        "content":`Selfwork is crucial for me as a recent graduate looking for work. While talking to a prospective employer, she told me that she found a link to a number of YouTube videos that I had created when I was younger. This was not the professional image that I hoped to share. As a result, I have carefully searched and changed privacy settings on my social media to make sure that I have managed my personal image. I know that care and attention to privacy is important for me and for those around me and also will reflect on how I care about the company and colleagues where I work.`,
+        "img":infoManagementPortfolio
+      },
+      {
+        "id":3,
+        "title": `Worsn Myself`,
+        "skill": {
+          "id":7,
+          "name":`Seyeetrk`,
+          "icon":infoManagement,
+          "class":`infoManagement`
+        },
+        "content":`Selfwork is crucial for me as a recent graduate looking for work. While talking to a prospective employer, she told me that she found a link to a number of YouTube videos that I had created when I was younger. This was not the professional image that I hoped to share. As a result, I have carefully searched and changed privacy settings on my social media to make sure that I have managed my personal image. I know that care and attention to privacy is important for me and for those around me and also will reflect on how I care about the company and colleagues where I work.`,
+        "img":infoManagementPortfolio
+      }
+    ]
+  }
+  
   render() {
     return (
       <main className="layout">
         <div className="button-corner">
           <Link to="/portfolio/edit">
-            <img src={edit_ico}/>
+            <img alt="edit portfolio" src={edit_ico}/>
           </Link>
         </div>
         <div className="tile blank">
@@ -29,7 +76,7 @@ class PortfolioDisplayPage extends Component {
           <section className="portfolio-bio two-column-grid">
 
             <div className="profile-image">
-              <img src={ me }/>
+              <img alt="It's you!" src={ me }/>
               <div className="hero-info">
                   <h1 className="white-txt">Brent Chad</h1>
                   <div className="tags">
@@ -64,61 +111,15 @@ class PortfolioDisplayPage extends Component {
           <h1>Skillpod Portfolio</h1>
           <h2>A collection of Brent's Portfolio Pieces</h2>
         </div>
-        
         <div className="portfolio-pieces">
-          <div className="portfolio-thumb">
-            <div className="thumb-info">
-              <div className="mini-module module selfwork">
-                <img src={ selfWork}/>
-              </div>
-              <h4>My Professional Image</h4>
-            </div>
-          </div>
-          <div className="portfolio-thumb">
-            <div className="thumb-info">
-              <div className="mini-module module selfwork">
-              <img src={ selfWork}/>
-              </div>
-              <h4>My Professional Image</h4>
-            </div>
-          </div>
-          <div className="portfolio-thumb">
-            <div className="thumb-info">
-              <div className="mini-module module selfwork">
-              <img src={ selfWork}/>
-              </div>
-              <h4>My Professional Image</h4>
-            </div>
-          </div>
-          <div className="portfolio-thumb">
-            <div className="thumb-info">
-              <div className="mini-module module selfwork">
-              <img src={ selfWork}/>
-              </div>
-              <h4>My Professional Image</h4>
-            </div>
-          </div>
+          {
+            this.state.portfolioPieces.map(piece => 
+              <PortfolioThumbs piece={piece} />
+            )
+          }
         </div>
         
-        <div className="current-portfolio-piece">
-            <div className="tile full no-padding">
-              
-              <div className="profile-image">
-                <div>
-                  <img src={ portfolio_hero }/>
-                </div>
-              </div>
-              <div className="tile blank">
-                <Link to="null:"><img className="go-back" src={back_arrow}/></Link>
-                <h1 className="no-vertical-margin">My Professional Image</h1>
-                <h2 className="no-vertical-margin">Information Management</h2>
-                <p><span className="txt-impact">Information Management</span> is crucial for me as a recent graduate looking for work. While talking to a prospective employer, she told me that she found a link to a number of YouTube videos that I had created when I was younger. This was not the professional image that I hoped to share. As a result, I have carefully searched and changed privacy settings on my social media to make sure that I have managed my personal image. I know that care and attention to privacy is important for me and for those around me and also will reflect on how I care about the company and colleagues where I work.</p>
-                {/* This would go back to portfolio piece selection. it only shoes if a piece has been selected. */}
-                <Link to="null:" className="button">Go Back</Link>
-              </div>
-              
-            </div>
-          </div>
+        <CurrentPortfolioPiece piece={this.state.portfolioPieces[0]} />
 
         <div className="tile blank">
             <h1>About Brent</h1>

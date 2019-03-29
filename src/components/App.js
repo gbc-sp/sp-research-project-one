@@ -2,20 +2,17 @@ import React, { Component } from "react";
 import { Route, Link, BrowserRouter as Router } from "react-router-dom";
 
 import TipsPopup from "TipsPopup";
-import IndexPage from "IndexPage";
-import DashboardPage from "DashboardPage";
-import CompetencyPage1 from "CompetencyPage1";
-import CompetencyPage2 from "CompetencyPage2";
-import CompetencyPage3 from "CompetencyPage3";
-import CompetencyPage4 from "CompetencyPage4";
-import PortfolioEditPage from "PortfolioEditPage";
-import PortfolioDisplayPage from "PortfolioDisplayPage";
-import PortfolioCreatePage from "PortfolioCreatePage";
-import SignupPage from "SignupPage";
-import LoginPage from "LoginPage";
+import IndexPage from "outer/IndexPage";
+import DashboardPage from "dashboard/DashboardPage";
+import CompetencyPage from "comp/CompetencyPage";
+import PortfolioEditPage from "portfolio/PortfolioEditPage";
+import PortfolioDisplayPage from "portfolio/PortfolioDisplayPage";
+import PortfolioCreatePage from "portfolio/PortfolioCreatePage";
+import SignupPage from "outer/SignupPage";
+import LoginPage from "outer/LoginPage";
 import HelpPage from "HelpPage";
-import ModuleStartPage from "ModuleStartPage";
-import Goals from "Goals";
+import SkillHomePage from "SkillHomePage";
+import Goals from "outer/GoalsPage";
 
 import dashboard_ico from "icons/dashboard.svg";
 import portfolio_ico from "icons/portfolio.svg";
@@ -34,18 +31,18 @@ class App extends Component {
         <div className="app">
           <nav className="toolbar">
             <ul className="tools">
-              <li className="tool logo"><img src={logo} /></li>
+              <li className="tool logo"><img alt="skillpod logo" src={logo} /></li>
               <li></li>
-              <li className="tool current"><Link to="dashboard.html"><img src={dashboard_ico} /><span>dashboard</span></Link></li>
-              <li className="tool"><Link to="portfolio.html"><img src={portfolio_ico} /><span>portfolio</span></Link></li>
+              <li className="tool current"><Link to="/dashboard"><img alt="dashboard icon" src={dashboard_ico} /><span>dashboard</span></Link></li>
+              <li className="tool"><Link to="/portfolio"><img alt="portfolio icon" src={portfolio_ico} /><span>portfolio</span></Link></li>
               <li className="tool more">
                 <h4>Want to know <br/>yourself better?</h4>
                 <h5>Take the PLP, a personalized learning profile quiz.</h5>
-                <Link className="button light" target="_blank" to="https://plp.skillpod.ca">Learning Profile</Link>
+                <a className="button light" rel="noopener" target="_blank" href="https://plp.skillpod.ca">Learning Profile</a>
               </li>
               <li className="tool more">
                 <Link target="_blank" to="/help">More Help</Link>
-                <Link target="_blank" to="https://skillpod.ca">Skillpod Organization</Link>
+                <a target="_blank" rel="noopener" href="https://skillpod.ca">Skillpod Organization</a>
                 <h5>Copyright Info Here, 2019 ©</h5>
               </li>
             </ul>
@@ -64,11 +61,11 @@ class App extends Component {
           <Route path="/help" component={HelpPage} />
           <Route path="/signup" component={SignupPage} />
           <Route path="/login" component={LoginPage} />
-          <Route path="/skill" component={ModuleStartPage} /> {/*put literal skill name here*/}
-          <Route exact path="/competency/1" component={CompetencyPage1} />
-          <Route path="/competency/2" component={CompetencyPage2} />
-          <Route path="/competency/3" component={CompetencyPage3} />
-          <Route path="/competency/4" component={CompetencyPage4} />
+          <Route path="/skill" component={SkillHomePage} /> {/*put literal skill name here*/}
+          <Route exact path="/competency/1" component={CompetencyPage} />
+          <Route path="/competency/2" component={CompetencyPage} />
+          <Route path="/competency/3" component={CompetencyPage} />
+          <Route path="/competency/4" component={CompetencyPage} />
         </div>
       </Router>
     ); // end return

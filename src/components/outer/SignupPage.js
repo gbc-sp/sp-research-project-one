@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import ConsentForm from "outer/ConsentForm";
+
 import logo from "logos/skillpod-logo-head.svg";
 
 class SignupPage extends Component {
@@ -9,7 +11,7 @@ class SignupPage extends Component {
         <main className="layout">
           <div className="tile blank">
             <div className="bio-grid">
-              <img src={logo}/>
+              <img alt="skillpod logo" src={logo}/>
               <div>
                   <h1>One last step</h1>
                   <h5>Please signup to access the rest of Skillpod.</h5>
@@ -54,7 +56,7 @@ class SignupPage extends Component {
               <option value="one">Onboarding at work</option>
               <option value="two">Looking to advance at work</option>
             </select>
-            {/* CONFIRM CONSET POP UP BEFORE THIS */}
+            {/* CONFIRM CONSET POP UP BEFORE THIS <ConsentForm /> */}
             <Link to="/dashboard" className="button">Submit</Link>
           </div>
         </main>

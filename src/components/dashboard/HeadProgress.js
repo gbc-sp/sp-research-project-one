@@ -53,7 +53,7 @@ class HeadProgress extends Component {
                 <div className="one-comp"></div>
                 <div className="one-comp"></div>
               </div>
-              <img src={ halfHead }/>
+              <img alt="skillpod logo" src={ halfHead }/>
             </div>
         )
     }

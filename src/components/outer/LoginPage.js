@@ -9,7 +9,7 @@ class LoginPage extends Component {
       <main class="layout">
         <div class="tile blank">
           <div class="bio-grid">
-            <img src={logo}/>
+            <img alt="skillpod logo" src={logo}/>
             <div>
                 <h1>Login</h1>
                 <h5>Please signup to access the rest of Skillpod.</h5>

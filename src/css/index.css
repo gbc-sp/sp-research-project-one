@@ -515,7 +515,7 @@ body.no-toolbar {
 .skill-nav-buttons {
   position: absolute;
   z-index: 9;
-  right: 1em;
+  right: calc(var(--padding) / 3);
   bottom: calc( var(--dashboard-circle-size) / -2);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -835,7 +835,7 @@ body.no-toolbar {
 
 .tags {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, max-content);
   text-align: center;
 }
 .tags h3, .tags h4, .tags p {
@@ -1077,7 +1077,7 @@ input.check-box :parent { /* How would you do something like this? I want the <l
 button, .button, .buttonAlt, .button-square {
   display: inline-block;  /* non-colapsing margins: do we care? */
   min-width: 6em;
-  /* border: var(--line) solid var(--color-impact); */
+  border: none;
   border-radius: var(--corners);
   background-color: var(--color-impact);
   color: var(--color-light);
@@ -2019,7 +2019,19 @@ button, .button, .buttonAlt, .button-square {
   .footer-grid section {
     margin-bottom: 0em;
   }
-
+  
+  .scrollable-row.trophy-case {
+    padding: calc(var(--padding)/3) 0;
+  }
+  
+  .head-progress {
+    margin: var(--padding) calc(var(--padding)/3);
+  }
+  
+  .skill-nav-buttons {
+    right: calc(var(--padding) / 1.5);
+  }
+  
   .toolbar.competency .progress-bar {
     background-color: black;
   }
@@ -2045,9 +2057,6 @@ button, .button, .buttonAlt, .button-square {
   .pop-up .vertical-stack .tile {
     max-width: unset;
     width: 100%;
-  }
-  .scrollable-row-double {
-    /* margin: 0 calc( var(--padding) * -1); */
   }
   .dynamic-content-panel.two-column-grid {
     grid-template-columns: max-content auto;

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import checkmark from "icons/checkmark.svg";
 import lock from "icons/locked.svg";
+import SkillTileProgress from 'utility/SkillProgress';
 
 class SkillTile extends Component {
 
@@ -46,7 +47,7 @@ class SkillTile extends Component {
 
     render() {
         return (
-            <div className={`tile module skill-grid ${this.props.tile.class} ${(this.props.tile.complete ? "complete" : (!this.props.tile.comp) && "disabled")}`}>
+            <div className={`tile module skill-grid ${this.props.tile.class} ${(this.props.tile.complete ? "complete" : (!this.props.tile.comp) ? "disabled" : undefined)}`}>
                 <div>
                 <div>
                     <h6 className="small-margin-bottom">Skill</h6>
@@ -54,16 +55,15 @@ class SkillTile extends Component {
                 </div>
                 <div className="module-done"> {this.props.tile.complete ? <img className="checkmark" alt="complete" src={ checkmark }/> : (!this.props.tile.comp) && <img alt="locked" src={ lock } />} </div>
                 </div>
-                <img className="skill-icon" src={ this.props.tile.icon }/>
+                <img alt="skill icon" className="skill-icon" src={ this.props.tile.icon }/>
                 <div className="two-column-grid align-center">
                 <div className="skill-progress">
                     <h6>Progress</h6>
                     <div className="prog-bar">
-                    {/* Needs logic */}
-                        <h3 className="complete">1</h3>
-                        <h3 className="complete">2</h3>
-                        <h3 className="active">3</h3>
-                        <h3>4</h3>
+                        <SkillTileProgress pos={1} compProgress={this.props.tile.comp} complete={this.props.tile.complete} />
+                        <SkillTileProgress pos={2} compProgress={this.props.tile.comp} complete={this.props.tile.complete} />
+                        <SkillTileProgress pos={3} compProgress={this.props.tile.comp} complete={this.props.tile.complete} />
+                        <SkillTileProgress pos={4} compProgress={this.props.tile.comp} complete={this.props.tile.complete} />
                     </div>
                 </div>
                 <Link to="/skill" className="button">Go</Link>

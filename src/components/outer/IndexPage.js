@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import IndexGoalForm from "IndexGoalForm";
+import IndexGoalForm from "outer/IndexGoalForm";
 import { Link } from "react-router-dom";
 
 import hero1 from "art/web-art-1.png";
@@ -31,21 +31,21 @@ class IndexPage extends Component {
         <div className="tile blank more-tile-padding">
           <div className="indexLarge">
             <div className="logo">
-                <img className="logo-img" src={logo}/>
+                <img className="logo-img" alt="skillpod logo" src={logo}/>
             </div>
             <div className="graphic first">
-              <img src={hero1}/>
+              <img alt="graphic of unconfident person" src={hero1}/>
               <h4>The Digital Age</h4>
               <p>Prepare to thrive in work and life. Build, demonstrate, and articulate skills critical to working and living in the digital age. PUT ALL TEXT HERE ON MOBILE</p>
             </div>
             <div className="graphic second">
-              <img src={hero2}/>
+              <img alt="graphic of disorganized person" src={hero2}/>
               <h4>Entrepreneurial Economy</h4>
               <p>Prepare for employment by honing and sharing your own unique, essential skills required for success in the entrepreneurial economy.</p>
             </div>
 
             <div className="graphic third">
-              <img src={hero3}/>
+              <img alt="graphic of determined person" src={hero3}/>
               <h4>Build Your Skills</h4>
               <p>Start building your skills now, with Skillpod.</p>
             </div>

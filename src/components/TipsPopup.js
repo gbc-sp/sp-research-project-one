@@ -22,7 +22,7 @@ class TipsPopup extends Component {
         <div className="vertical-stack scrollable-row">
           <div className="tile shrink-vertical tight-padding selected designInnovation white-txt">
             <div className="two-column-grid invert">
-              <img src={ designInnovation } />
+              <img alt="skill icon" src={ designInnovation } />
               <div>
                 <h2 className="small-margin-bottom">Module</h2>
                 <h3 className="no-vertical-margin" id="moduleTitle">Module Name</h3>
@@ -32,7 +32,7 @@ class TipsPopup extends Component {
           </div>
           <div className="tile blank shrink-vertical tight-padding">
             <div className="two-column-grid">
-            <img src={ designInnovation } />
+            <img alt="skill icon" src={ designInnovation } />
               <div>
                 <h2 className="small-margin-bottom">Module</h2>
                 <h3 className="no-vertical-margin">Module Name</h3>
@@ -41,7 +41,7 @@ class TipsPopup extends Component {
           </div>
           <div className="tile blank shrink-vertical tight-padding">
             <div className="two-column-grid">
-            <img src={ designInnovation } />
+            <img alt="skill icon" src={ designInnovation } />
               <div>
                 <h2 className="small-margin-bottom">Module</h2>
                 <h3 className="no-vertical-margin">Module Name</h3>
