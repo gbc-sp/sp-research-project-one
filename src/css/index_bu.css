@@ -2,7 +2,6 @@
 :root {
   /* Global variables */
   --color-font: #26333b;
-  --color-font-dark: #1E262B;
   --color-font-lighten: #3b494f;
   --color-heavy: #333;
   --color-light: #fff;
@@ -58,7 +57,6 @@
   --shadow-large: 0 0px 50px 10px rgba(38, 51, 59, 0.2);
   --shadow-dark: 0 0 15px 5px rgba(192,182,209,0.4);
   --white-outline: 0 0 0 5px white;
-  --shadow-white: 0 1px 6px 2px rgba(255,255,255,0.2);
 
   --shadow-text: 0 0px 10px rgba(0,0,0,0.6);
 
@@ -112,7 +110,7 @@ h3 {
 }
 h4 {
   /* margin-top: 1.6em; */
-  font: 700 1em/1.3 var(--subheading-font);
+  font: 600 1em/1.3 var(--subheading-font);
 }
 h5 {
   margin: 0;
@@ -409,18 +407,6 @@ body.no-toolbar {
   position: relative;
   width: var(--module-tile-width);
   height: var(--module-tile-height);
-}
-
-.scrollable-row .tile.module:last-child:after {
-  content: "";
-  display: block;
-  /* Add back in to show the spacer */
-  background-color: rgb(255,0,0);
-  position: absolute;
-  top: 0;
-  right: -1em;
-  width: 1em;
-  height: 100%;
 }
 
 .scrollable-row.trophy-case {
@@ -946,10 +932,6 @@ body.no-toolbar {
 
 .local-nav :last-child {
   justify-self: right;
-}
-
-.toolbar .tool.expand {
-  display: none;
 }
 
 /****************** STEP COMPONENT ******************/
@@ -1808,11 +1790,6 @@ button, .button, .buttonAlt, .button-square {
   width: 50%;
 }
 
-.skill-home-info .prog-bar h3 {
-  font-size: 1.2em;
-  font-weight: 800;
-}
-
 /****************** PORTFOLIO SECTION ******************/
 
 .current-portfolio-piece .go-back {
@@ -1949,140 +1926,33 @@ button, .button, .buttonAlt, .button-square {
   max-width: 20em; /* QUESTION */
 }
 
+
 /* module-start */
 
-.begin-module {
-  display: none;
-}
-
-.toolbar.collapse {
-  --sidebar-width: 4em;
-}
-.toolbar.collapse .tools {
-  justify-items: center;
-  padding: calc( var(--padding) / 6);
-}
-.toolbar.collapse .tool  {
-  text-align: center;
-}
-.toolbar.collapse .tool a {
-  padding: calc( var(--padding) / 6) 0;
-  margin: 0;
-}
-.toolbar.collapse .tool a img {
-  margin: 0 auto;
-}
-.toolbar.collapse .tool.current a {
-  border-radius: 0.5em;
-}
-
-.toolbar.collapse .tool.more, .toolbar.collapse .tool a span {
-  display: none;
-}
-
-.toolbar.collapse .tool.expand {
-  align-self: end;
-  display: block;
-  height: 3em;
-}
-.toolbar.collapse .tool.expand .plus div {
-  width: 0.2em;
-  height: 1.3em;
-  background-color: var(--color-light);
-  position: absolute;
-}
-.plus {
-  position: relative;
-  margin: 0 auto;
-  width: 1.3em;
-  display: grid;
-  justify-items: center;
-}
-.toolbar.collapse .tool.expand .plus :first-child {
-  transform: rotate(90deg);
-}
-.toolbar.collapse .tool.expand .plus.open :first-child {
-  transform: rotate(90deg);
-  display: none;
-}
-
-.toolbar.collapse ~ .toolbarModule {
-  display:block;
-}
-.toolbar.collapse ~ .layout {
-  margin-left: calc(calc(var(--sidebar-width) * 1.25) + 4em);
-}
-
 .toolbarModule {
-  color: var(--color-light);
-  position: fixed;
-  z-index: 99998;
-  line-height: 1;
-  width: calc(var(--sidebar-width) * 1.25);
-  height: 100%;
-  left: 4em;
-  bottom: 0;
-  top: 0;
-  background-color: var(--color-font-dark);
-  padding: calc( var(--padding) / 1.5);
+    display: flex;
+    position: fixed;
+    z-index: 99999;
+    line-height: 1;
+}
+.toolbarModule {
+    width: var(--sidebar-width);
+    height: 100%;
+    left: 4em;
+    bottom: 0;
+    top: 0;
+    width: auto;
+    max-width: 15%;
 }
 
-.toolbarModule h6, .toolbarModule h4 {
-  margin-top: 2em;
+.toolbarModule ul {
+  background-color: rgb(32, 32, 32);
 }
 
-.toolbarModule .two-column-grid {
-  color: var(--color-font);
-  grid-template-columns: 2em 1fr;
-  background-color: var(--color-light);
-  border-radius: var(--corners);
-  padding: calc(var(--padding) / 3) calc(var(--padding) / 6);
-  margin: calc(var(--padding) / 6) 0;
-  grid-gap: calc(var(--gap) / 2);
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
-.toolbarModule .two-column-grid .progress {
-  position: absolute;
-  width: 0%;
-  height: 7px;
-  background-color: var(--color-smarter-learning);
-  top: 0;
-  left: 0;
-  border-radius: var(--corners) var(--corners) 0 0;
-}
-.toolbarModule .two-column-grid.active .progress {
-  width: 40%;
-  border-radius: var(--corners) 0 0 0;
-  background-color: var(--color-light);
-}
-.toolbarModule .two-column-grid.active {
-  background-color: var(--color-smarter-learning);
-  color: var(--color-light);
-}
-.toolbarModule .two-column-grid.complete .progress {
-  width: 0%;
-}
-.toolbarModule .two-column-grid.complete {
-  background-color: var(--color-font-lighten);
-  color: white;
-}
-.toolbarModule .two-column-grid.complete img, .toolbarModule .two-column-grid.active img {
-  filter: invert(1);
-}
-
-.toolbarModule .two-column-grid:hover {
-  transform: scale(1.05);
-  cursor: pointer;
-}
-.toolbarModule .two-column-grid.active:hover {
-  cursor: auto;
-  transform: unset;
-}
-
-.skill-home-info.tile {
-  padding: calc(var(--padding) * 1.5);
+.layout.skill-home {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
 }
 
 .skill-progress {
@@ -2093,28 +1963,38 @@ button, .button, .buttonAlt, .button-square {
   list-style-type: circle;
   margin: calc( var(--padding)/2) 0;
   display: block;
-  list-style-position: inside;
 }
 
-.local-nav .menu{
+/* Competeny/chapter 1*/
+
+.local-nav {
   display: none;
 }
 
+
+@media screen and (min-width: 60em) {
   :root {
     --padding: 3em;
   }
   body {
+    /* margin-left: calc(3.5em + var(--gap) + var(--gap)); */
     margin-bottom: 0;
     font-size: 1em;
     padding-bottom: 0;
   }
 
   .layout {
+    /* max-width: 60em; */
     margin: auto;
+    /* margin-top: 4.5em; */
     margin-left: var(--sidebar-width);
-  }
-  body.extended-nav .layout {
-    margin-left: calc(calc(var(--sidebar-width) * 1.25) + 4em);
+    /* overflow: auto; */
+
+    /* Works on dashboard, but breaks other pages */
+    /* width: -moz-max-content;
+    width: max-content;
+    width: intrinsic;
+    width: -webkit-max-content; */
   }
 
   .current-portfolio-piece .tile.full {
@@ -2151,7 +2031,7 @@ button, .button, .buttonAlt, .button-square {
   .skill-nav-buttons {
     right: calc(var(--padding) / 1.5);
   }
-
+  
   .toolbar.competency .progress-bar {
     background-color: black;
   }
@@ -2277,7 +2157,7 @@ button, .button, .buttonAlt, .button-square {
     }
     .tool a {
       color: var(--color-light);
-      margin: 0 0 0 calc( calc(var(--padding) / 1.5) * -1 );
+      margin: 0 0 0 calc( var(--padding) * -1 );
       padding: calc( var(--padding) / 5) var(--padding);
       display: flex;
       align-items: center;
@@ -2357,33 +2237,21 @@ button, .button, .buttonAlt, .button-square {
     width: 100%;
     align-self: end;
   }
-
-  .popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    width: calc(100% - calc(var(--padding) * 2));
-    max-width: 60em;
-    transform: translateX(-50%) translateY(-50%);
-    display: none;
-    box-shadow: var(--shadow-large);
-    padding: calc(var(--padding) + 1em);
-  }
-  .wow {
-    position: absolute;
-  }
 }
-@media screen and (min-width: 90em) {
-  .layout.skill-home {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    grid-template-rows: 1fr;
-  }
-  .skill-home-info {
-    height: 100%;
-  }
-  .always-fill-height {
-    min-height: 100vh;
-  }
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  width: calc(100% - calc(var(--padding) * 2));
+  max-width: 60em;
+  transform: translateX(-50%) translateY(-50%);
+  display: none;
+  box-shadow: var(--shadow-large);
+  padding: calc(var(--padding) + 1em);
+}
+.wow {
+  position: absolute;
+}
 }

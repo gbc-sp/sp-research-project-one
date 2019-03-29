@@ -22,7 +22,7 @@ class SkillHomePage extends Component {
       employersValue: [
         `Willingness to learn`,
         `Resilience`,
-        `Recourcefulness`,
+        `Resourcefulness`,
         `Adaptability`,
         `Learns effectively from others`
       ],
@@ -51,11 +51,11 @@ class SkillHomePage extends Component {
   render() {
     return (
       <main className="layout skill-home">
-        <div>
-          <div className="tile full smarterLearning white-txt make-it-relative">
+        <div className="always-fill-height">
+          <div className="tile full smarterLearning white-txt make-it-relative skill-home-info">
             <div className="local-nav">
-              <Link to="/dashboard"><img alt="page back icon" src={back_arrow} className="back-icon"/></Link>
-              <Link to=""><img alt="menu icon" src={menu} className="menu-icon"/></Link>
+              <Link className="back" to="/dashboard"><img alt="page back icon" src={back_arrow} className="back-icon"/></Link>
+              <Link className="menu" to=""><img alt="menu icon" src={menu} className="menu-icon"/></Link>
             </div>
             <div className="bring-forward skill-info">
               <h1>{this.state.skill.name}</h1>
@@ -92,8 +92,8 @@ class SkillHomePage extends Component {
           </div>
 
           </div>
-          <div>
-          <div className="tile full module-snug-top bring-forward">
+          <div className="always-fill-height">
+          <div className="tile full module-snug-top bring-forward skill-home-info">
               <div className="comp-breakdown-grid">
                 <img src={comp_ico} alt="chapters icon"/>
                 <div>
