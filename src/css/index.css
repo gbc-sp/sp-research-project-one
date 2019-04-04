@@ -742,7 +742,6 @@ body.no-toolbar {
   min-height: 100%;
   overflow-y: scroll;
   background-color: var(--color-bg);
-  display: none;
   padding-bottom: 6em;
 }
 .close-pop-up {

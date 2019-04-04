@@ -5,9 +5,6 @@ import designInnovation from "icons/skills/designInnovation.svg";
 
 const TipsPopup = (props) => {
   
-  console.log("hey");
-  
-  
   return(
     <div id="tipsPopUp" className="pop-up dynamic-content-panel two-column-grid">
 
