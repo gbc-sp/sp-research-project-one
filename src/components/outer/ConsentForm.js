@@ -1,28 +1,28 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-class ConsentForm extends Component {
+const { useState} = React;
 
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-        <div class='tile popup'>
-            <h1>Your Information</h1>
-            <p>Skillpod uses your information to do:</p> 
-            <ul class="bulleted">
-                <li>thing one</li>
-                <li>thing two</li>
-                <li>thing three</li>
-            </ul>
-            <p>We do not do thing four with it.</p>
-            <Link to="/load" class="button">I Consent</Link><br/> {/* bad br */}
-            <a href="javascript:" class="buttonAlt">More Information</a>
-        </div>
-    );
-  }
+const ConsentForm = (props) => {
+  return (
+    <div class="tile popup">
+      <h1>Your Information</h1>
+      <p>Skillpod uses your information to do:</p>
+      <ul class="bulleted">
+        <li>thing one</li>
+        <li>thing two</li>
+        <li>thing three</li>
+      </ul>
+      <p>We do not do thing four with it.</p>
+      <Link to="/load" class="button">
+        I Consent
+      </Link>
+      <br /> {/* bad br */}
+      <Link to={null} class="buttonAlt">
+        More Information
+      </Link>
+    </div>
+  );
 }
 
 export default ConsentForm;
