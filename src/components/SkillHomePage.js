@@ -9,7 +9,6 @@ import back_arrow from "icons/back-arrow.svg";
 import smarterLearning from "icons/skills/smarterLearning.svg";
 
 class SkillHomePage extends Component {
-  
   state = {
     skill: {id: 6, name: "Smarter Learning", icon: smarterLearning, class: "smarterLearning",
     progress: 12.5*6, color: "#42C2CF", complete: false, comp: 3 },
