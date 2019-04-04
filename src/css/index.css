@@ -1952,7 +1952,7 @@ button, .button, .buttonAlt, .button-square {
 /* module-start */
 
 .begin-module {
-  display: none;
+  display: ;
 }
 
 .toolbar.collapse {
