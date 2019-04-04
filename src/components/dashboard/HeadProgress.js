@@ -4,7 +4,11 @@ import halfHead from "logos/just-head.svg";
 
 const { useState, useRef } = React;
 
-function HeadProgress(props) {
+const HeadProgress = props => {
+  
+  //get all completed skills, and partway skills
+  //add active class for as many comps exist
+  
   return (
     <div className="head-progress">
       <div className="one-skill">
