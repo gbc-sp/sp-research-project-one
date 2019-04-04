@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import SkillTile from "dashboard/SkillTile";
 import MiniSkillTile from "dashboard/MiniSkillTile";
 import HeadProgress from "dashboard/HeadProgress";
+import TipsPopup from '../TipsPopup';
 
 import smarterLearning from "icons/skills/smarterLearning.svg";
 import strategicThinking from "icons/skills/strategicThinking.svg";
@@ -19,6 +20,11 @@ import nav_forward from "icons/forward-arrow.svg";
 const { useState, useRef } = React;
 
 function DashboardPage(props) {
+  
+  const [popVisible, setPopVisible] = useState(false);
+  console.log(`inf: ${popVisible}`);
+  
+  
   const [tiles, setTile] = useState([
     //go to tips pop up
     {id: 0, name: "Self Work", icon: selfWork, class: "selfwork",
@@ -45,14 +51,13 @@ function DashboardPage(props) {
   
   const navigateSkills = () => {
     console.log("do something");
-    
   }
   
   return (
 
     <main className="layout dashboard">
     
-      {/* {this.state.tipsPop && <TipsPopup />} */}
+      {(popVisible) && <TipsPopup tile={props.tile} />}
 
       <div className="tile no-shadow no-bottom-padding">
         <h1>Dashboard</h1>
@@ -63,7 +68,7 @@ function DashboardPage(props) {
       <div id="setBackgroundGradient" className="scrollable-row">
         {
           tiles.map( (tile,i) => 
-            <SkillTile tile={tile} key={i}/>
+            <SkillTile tile={tile} key={i} popVisible={popVisible} setPopVisible={setPopVisible}/>
           )
         }  
       </div>
@@ -82,7 +87,7 @@ function DashboardPage(props) {
           <div className="scrollable-row trophy-case">
             {
               tiles.filter (tile => tile.complete).map((tile,i) =>
-                <MiniSkillTile tile={tile} key={i} />
+                <MiniSkillTile tile={tile} key={i} popVisible={popVisible} setPopVisible={setPopVisible}/>
               )
             }
           </div>
