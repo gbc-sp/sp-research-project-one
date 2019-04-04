@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Route, Link, BrowserRouter as Router } from "react-router-dom";
 
-import TipsPopup from "TipsPopup";
 import IndexPage from "outer/IndexPage";
 import DashboardPage from "dashboard/DashboardPage";
 import CompetencyPage from "comp/CompetencyPage";
@@ -13,13 +12,17 @@ import LoginPage from "outer/LoginPage";
 import HelpPage from "HelpPage";
 import SkillHomePage from "SkillHomePage";
 import Goals from "outer/GoalsPage";
-import MainToolbar from "utility/MainToolbar";
-
-import comp_ico from "icons/competency.svg";
 
 const { useState, useRef } = React;
 
 const App = (props) => {
+  
+  const [navSettings, setNavSettings] = useState({
+    collapsed: true,
+    more: true,
+    hidden: false
+  });
+  
   return (
     <Router>
 
@@ -29,13 +32,12 @@ const App = (props) => {
       {/* https://reacttraining.com/react-router/web/api/Link */}
 
       <div className="app">
-        <MainToolbar />
 
         {/* <TipsPopup /> */}
         {/* EVERY URL THAT NEEDS TO BE REGISTERED (PAGES) IS DONE SO HERE */}
         <Route exact path="/" component={IndexPage} />
         <Route exact path="/yourgoal" component={Goals} />
-        <Route path="/dashboard" component={DashboardPage} />
+        <Route path="/dashboard" component={DashboardPage}/>
         <Route exact path="/portfolio" component={PortfolioDisplayPage} />
         <Route path="/portfolio/create" component={PortfolioCreatePage} />
         <Route path="/portfolio/edit" component={PortfolioEditPage} />

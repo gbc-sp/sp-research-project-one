@@ -7,6 +7,8 @@ import menu from "icons/menu.svg";
 import comp_ico from "icons/competency.svg";
 import back_arrow from "icons/back-arrow.svg";
 import smarterLearning from "icons/skills/smarterLearning.svg";
+import MainToolbar from "utility/MainToolbar";
+
 
 const { useState, useRef } = React;
 
@@ -52,6 +54,8 @@ function SkillHomePage(props) {
   };
   
   return (
+    <>
+    <MainToolbar />
     <main className="layout skill-home">
         <div className="always-fill-height">
           <div className="tile full smarterLearning white-txt make-it-relative skill-home-info">
@@ -117,6 +121,7 @@ function SkillHomePage(props) {
 
           </div>
         </main>
+      </>
   )
 }
 export default SkillHomePage;

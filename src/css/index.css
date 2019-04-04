@@ -81,7 +81,6 @@ body {
   background-color: var(--color-bg);
   color: var(--color-font);
   /* padding: 0 var(--padding); */
-  padding-bottom: 4em;
 }
 /* body.dark-theme {
   --color-font: white;
@@ -214,6 +213,7 @@ a:focus, a:hover {
   display: grid;
   /* grid-gap: var(--gap); */
   min-height: 100%;
+  padding-bottom: 4em;
   /* padding: var(--gap) 0; */
   /* margin-bottom: 5.5em;  assumes the bottom bar is always the same height - revisit */
 }
@@ -221,7 +221,7 @@ a:focus, a:hover {
 .no-toolbar, .no-toolbar .layout { /*I changed the syntax to this.. doesn't need media query anymore either */
   margin: auto;
 }
-body.no-toolbar {
+.no-toolbar {
   padding-bottom: 0;
 }
 
@@ -1591,15 +1591,15 @@ button, .button, .buttonAlt, .button-square {
 .skill-info ul {
   display: none;
 }
-.toolbarModule {
-  display: none;
-}
 
 /****************** GOAL PAGE ******************/
 
 .build-goal {
   display: grid;
   grid-template-rows: repeat(3, auto);
+  max-width: 30em;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .build-goal > * {
@@ -2114,6 +2114,10 @@ button, .button, .buttonAlt, .button-square {
   }
   body.extended-nav .layout {
     margin-left: calc(calc(var(--sidebar-width) * 1.25) + 4em);
+  }
+  
+  .no-toolbar, body.extended-nav .layout.no-toolbar, .layout.no-toolbar {
+    margin: 0;
   }
 
   .current-portfolio-piece .tile.full {

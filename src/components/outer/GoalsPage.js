@@ -10,7 +10,7 @@ class GoalsPage extends Component {
 
   render() {
     return (
-        <main className="layout goals">
+        <main className="layout goals no-toolbar">
             <div className="tile blank white-txt">
             <h1>Create Your Goal</h1>
             <h5>This goals determines your custom path through Skillpod!</h5>

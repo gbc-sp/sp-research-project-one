@@ -5,6 +5,7 @@ import SkillTile from "dashboard/SkillTile";
 import MiniSkillTile from "dashboard/MiniSkillTile";
 import HeadProgress from "dashboard/HeadProgress";
 import TipsPopup from '../TipsPopup';
+import MainToolbar from "utility/MainToolbar";
 
 import smarterLearning from "icons/skills/smarterLearning.svg";
 import strategicThinking from "icons/skills/strategicThinking.svg";
@@ -23,7 +24,6 @@ function DashboardPage(props) {
   
   const [popVisible, setPopVisible] = useState(false);
   console.log(`inf: ${popVisible}`);
-  
   
   const [tiles, setTile] = useState([
     //go to tips pop up
@@ -54,70 +54,72 @@ function DashboardPage(props) {
   }
   
   return (
+    <>
+    <MainToolbar />
+      <main className="layout dashboard">
+      
+        {(popVisible) && <TipsPopup tile={props.tile} />}
 
-    <main className="layout dashboard">
-    
-      {(popVisible) && <TipsPopup tile={props.tile} />}
-
-      <div className="tile no-shadow no-bottom-padding">
-        <h1>Dashboard</h1>
-        <h5>Welcome back, Sherry.</h5>
-        <h4>Skill Path</h4>
-      </div>
-  
-      <div id="setBackgroundGradient" className="scrollable-row">
-        {
-          tiles.map( (tile,i) => 
-            <SkillTile tile={tile} key={i} popVisible={popVisible} setPopVisible={setPopVisible}/>
-          )
-        }  
-      </div>
-  
-      <div className="skill-navigation">
-        <div className="skill-nav-buttons">
-          <button className="round" onClick={navigateSkills}><img alt="back one skill icon" src={nav_back}/></button>
-          <button className="round" onClick={navigateSkills}><img alt="forward one skill icon" src={nav_forward}/></button>
+        <div className="tile no-shadow no-bottom-padding">
+          <h1>Dashboard</h1>
+          <h5>Welcome back, Sherry.</h5>
+          <h4>Skill Path</h4>
         </div>
-      </div>
-  
-      <div className="tile trophies">
-        <div>
-          <h4>Completed Skills</h4>
-          <h5>Recap on skills you’ve completed.</h5>
-          <div className="scrollable-row trophy-case">
-            {
-              tiles.filter (tile => tile.complete).map((tile,i) =>
-                <MiniSkillTile tile={tile} key={i} popVisible={popVisible} setPopVisible={setPopVisible}/>
-              )
-            }
+    
+        <div id="setBackgroundGradient" className="scrollable-row">
+          {
+            tiles.map( (tile,i) => 
+              <SkillTile tile={tile} key={i} popVisible={popVisible} setPopVisible={setPopVisible}/>
+            )
+          }  
+        </div>
+    
+        <div className="skill-navigation">
+          <div className="skill-nav-buttons">
+            <button className="round" onClick={navigateSkills}><img alt="back one skill icon" src={nav_back}/></button>
+            <button className="round" onClick={navigateSkills}><img alt="forward one skill icon" src={nav_forward}/></button>
           </div>
         </div>
-  
-        <div>
-          <h4>Progress</h4>
-          <h5>All your Skillpod progress in one spot.</h5>
-          <HeadProgress />
-        </div>
-  
-        <div className="footer-grid">
-          <section>
-            <h1>Want to know yourself better?</h1>
-            <h2>Take the PLP, a personalized learning profile quiz.</h2>
-            <a className="button" rel="noopener" target="_blank" href="https://plp.skillpod.ca">Learning Profile</a>
-          </section>
-          <section>
-              <h1>Get extra help.</h1>
-              <h2>Tips, Tools, and FAQ.</h2>
-              <Link className="button" to="/help">Help</Link>
+    
+        <div className="tile trophies">
+          <div>
+            <h4>Completed Skills</h4>
+            <h5>Recap on skills you’ve completed.</h5>
+            <div className="scrollable-row trophy-case">
+              {
+                tiles.filter (tile => tile.complete).map((tile,i) =>
+                  <MiniSkillTile tile={tile} key={i} popVisible={popVisible} setPopVisible={setPopVisible}/>
+                )
+              }
+            </div>
+          </div>
+    
+          <div>
+            <h4>Progress</h4>
+            <h5>All your Skillpod progress in one spot.</h5>
+            <HeadProgress />
+          </div>
+    
+          <div className="footer-grid">
+            <section>
+              <h1>Want to know yourself better?</h1>
+              <h2>Take the PLP, a personalized learning profile quiz.</h2>
+              <a className="button" rel="noopener" target="_blank" href="https://plp.skillpod.ca">Learning Profile</a>
             </section>
-          <section>
-            <h1>More about Skillpod.</h1>
-            <h2>Read more about the organization.</h2>
-            <a className="button" rel="noopener" target="_blank" href="https://skillpod.ca">Skillpod</a>
-          </section>
+            <section>
+                <h1>Get extra help.</h1>
+                <h2>Tips, Tools, and FAQ.</h2>
+                <Link className="button" to="/help">Help</Link>
+              </section>
+            <section>
+              <h1>More about Skillpod.</h1>
+              <h2>Read more about the organization.</h2>
+              <a className="button" rel="noopener" target="_blank" href="https://skillpod.ca">Skillpod</a>
+            </section>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
 

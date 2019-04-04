@@ -9,7 +9,7 @@ const { useState, useRef } = React;
 
 const MainToolbar = (props) => {
     return (
-        <nav className="toolbar">
+        <nav className={`toolbar ${props.classVal}`}>
           <ul className="tools">
             <li className="tool logo"><img alt="skillpod logo" src={logo} /></li>
             <li></li>
