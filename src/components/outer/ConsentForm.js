@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-const { useState, useRef } = React;
+const { useState} = React;
 
-function ConsentForm(props) {
+const ConsentForm = (props) => {
   return (
     <div class="tile popup">
       <h1>Your Information</h1>
@@ -18,9 +18,9 @@ function ConsentForm(props) {
         I Consent
       </Link>
       <br /> {/* bad br */}
-      <a href="javascript:" class="buttonAlt">
+      <Link to={null} class="buttonAlt">
         More Information
-      </a>
+      </Link>
     </div>
   );
 }

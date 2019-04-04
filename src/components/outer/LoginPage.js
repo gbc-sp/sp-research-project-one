@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import logo from "logos/skillpod-logo-head.svg";
 
 const { useState, useRef } = React;
 
-function LoginPage(props) {
+const LoginPage = props => {
+  
   return (
     <main class="layout">
       <div class="tile blank">
@@ -18,8 +19,10 @@ function LoginPage(props) {
         </div>
       </div>
       <div class="tile blank">
+      <form>
         <input type="text" placeholder="E-mail / Username" />
         <input type="text" placeholder="Password" />
+      </form>
         <Link to="/dashboard" class="button">
           Login
         </Link>

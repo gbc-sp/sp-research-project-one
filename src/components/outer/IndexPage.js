@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import IndexGoalForm from "outer/IndexGoalForm";
 import { Link } from "react-router-dom";
 
@@ -7,10 +7,9 @@ import hero2 from "art/web-art-2.png";
 import hero3 from "art/web-art-3.png";
 import logo from "logos/skillpod-logo.svg";
 
-const { useState, useRef } = React;
+const { useState} = React;
 
-function IndexPage(props) {
-  const [visible, setVisibility] = useState(true);
+const IndexPage = props => {
 
   return (
     <main className="layout intro">
