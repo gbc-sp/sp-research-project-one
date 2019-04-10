@@ -110,12 +110,12 @@ function PortfolioDisplayPage(props) {
         <h2>A collection of Brent's Portfolio Pieces</h2>
       </div>
       <div className="portfolio-pieces">
-        {this.state.portfolioPieces.map(piece => (
-          <PortfolioThumbs piece={piece} />
+        {piece.map((p, i) => (
+          <PortfolioThumbs key={i} piece={p} />
         ))}
       </div>
 
-      <CurrentPortfolioPiece piece={this.state.portfolioPieces[0]} />
+      <CurrentPortfolioPiece piece={piece[0]} />
 
       <div className="tile blank">
         <h1>About Brent</h1>
