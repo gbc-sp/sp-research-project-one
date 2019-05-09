@@ -13,6 +13,7 @@ import MainToolbar from "utility/MainToolbar";
 const { useState, useRef } = React;
 
 function SkillHomePage(props) {
+  
   const skillData = {id: 6, name: "Smarter Learning", icon: smarterLearning, class: "smarterLearning",
   progress: 12.5*6, color: "#42C2CF", complete: false, comp: 3 };
   

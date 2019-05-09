@@ -7,7 +7,7 @@ import hero2 from "art/web-art-2.png";
 import hero3 from "art/web-art-3.png";
 import logo from "logos/skillpod-logo.svg";
 
-const { useState} = React;
+const { useState } = React;
 
 const IndexPage = props => {
 
@@ -56,5 +56,6 @@ const IndexPage = props => {
     </main>
   );
 }
+
 
 export default IndexPage;
