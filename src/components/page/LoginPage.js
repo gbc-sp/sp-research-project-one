@@ -8,7 +8,7 @@ const { useState, useRef } = React;
 const LoginPage = props => {
   
   return (
-    <main class="layout">
+    <main class="layout no-toolbar">
       <div class="tile blank">
         <div class="bio-grid">
           <img alt="skillpod logo" src={logo} />
