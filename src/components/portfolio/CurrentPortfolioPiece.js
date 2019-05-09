@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 
 import back_arrow from "icons/back-arrow.svg";
 const { useState} = React;
+
 const CurrentPortfolioPiece = props => {
-  const [piece, setPiece] = useState();
+
+  const [piece, setPiece] = useState(props.piece);
   
   return (
     <div className="current-portfolio-piece">
@@ -24,9 +26,7 @@ const CurrentPortfolioPiece = props => {
           </h2>
           <p>{piece.content}</p>
           {/* This would go back to portfolio piece selection. it only shows if a piece has been selected. */}
-          <Link to="null:" className="button">
-            Go Back
-          </Link>
+          <Link to="null:" className="button">Go Back</Link>
         </div>
       </div>
     </div>

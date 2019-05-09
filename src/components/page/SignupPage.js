@@ -10,7 +10,7 @@ const { useState, useRef } = React;
 const SignupPage = props => {
   
   return (
-    <main className="layout">
+    <main className="layout no-toolbar">
       <div className="tile blank">
         <div className="bio-grid">
           <img alt="skillpod logo" src={logo} />

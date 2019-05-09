@@ -3,7 +3,7 @@ import { Route, Link, BrowserRouter as Router } from "react-router-dom";
 import {IndexPage, DashboardPage, GoalsPage, SignupPage, LoginPage, HelpPage, SkillHomePage, CompetencyPage, PortfolioEditPage, PortfolioDisplayPage, PortfolioCreatePage} from './page';
 
 
-const App = (props) => {
+const App = props => {
   
   // const [navSettings, setNavSettings] = useState({
   //   collapsed: true,

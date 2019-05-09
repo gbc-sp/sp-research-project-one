@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 
 import PortfolioThumbs from "portfolio/PortfolioThumbs";
 import CurrentPortfolioPiece from "portfolio/CurrentPortfolioPiece";
+import MainToolbar from "utility/MainToolbar";
 
 import me from "user/me.jpg";
 import portfolio_hero from "user/portfolio/infoManagement/hero.jpg";
@@ -15,10 +16,10 @@ import infoManagement from "icons/skills/infoManagement.svg";
 
 import infoManagementPortfolio from "user/portfolio/infoManagement/hero.jpg";
 
-const { useState, useRef } = React;
 
-function PortfolioDisplayPage(props) {
-  const [piece, setPiece] = useState([
+const PortfolioDisplayPage = props => {
+
+  const [pieces, setPieces] = useState([
     {
       id: 1,
       title: `My Professional Image`,
@@ -58,95 +59,98 @@ function PortfolioDisplayPage(props) {
   ]);
 
   return (
-    <main className="layout">
-      <div className="button-corner">
-        <Link to="/portfolio/edit">
-          <img alt="edit portfolio" src={edit_ico} />
-        </Link>
-      </div>
-      <div className="tile blank">
-        <h1>Skillpod Portfolio</h1>
-        <h3>A collection about you.</h3>
-      </div>
+    <>
+      <MainToolbar page="portfolio" />
+      <main className="layout">
+        <div className="button-corner">
+          <Link to="/portfolio/edit">
+            <img alt="edit portfolio" src={edit_ico} />
+          </Link>
+        </div>
+        <div className="tile blank">
+          <h1>Skillpod Portfolio</h1>
+          <h3>A collection about you.</h3>
+        </div>
 
-      <div className="tile full no-padding profile-hero">
-        <section className="portfolio-bio two-column-grid">
-          <div className="profile-image">
-            <img alt="It's you!" src={me} />
-            <div className="hero-info">
-              <h1 className="white-txt">Brent Chad</h1>
-              <div className="tags">
-                <h4>Leadership</h4>
-                <h4>Resilience</h4>
-                <h4>Coolness</h4>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="tile blank">
-              <h2>Bio</h2>
-              <p>
-                This is all about me! I'm a person that uses Skillpod, and I
-                love it!
-              </p>
-            </div>
-
-            <div className="tile blank no-top-padding">
-              <div>
-                <h2>Contact Brent</h2>
-                <div className="two-column-grid">
-                  <button className="button">Email</button>
-                  <button className="button">Phone</button>
+        <div className="tile full no-padding profile-hero">
+          <section className="portfolio-bio two-column-grid">
+            <div className="profile-image">
+              <img alt="It's you!" src={me} />
+              <div className="hero-info">
+                <h1 className="white-txt">Brent Chad</h1>
+                <div className="tags">
+                  <h4>Leadership</h4>
+                  <h4>Resilience</h4>
+                  <h4>Coolness</h4>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      </div>
 
-      <div className="tile blank">
-        <h1>Skillpod Portfolio</h1>
-        <h2>A collection of Brent's Portfolio Pieces</h2>
-      </div>
-      <div className="portfolio-pieces">
-        {this.state.portfolioPieces.map(piece => (
-          <PortfolioThumbs piece={piece} />
-        ))}
-      </div>
+            <div>
+              <div className="tile blank">
+                <h2>Bio</h2>
+                <p>
+                  This is all about me! I'm a person that uses Skillpod, and I
+                  love it!
+                </p>
+              </div>
 
-      <CurrentPortfolioPiece piece={this.state.portfolioPieces[0]} />
+              <div className="tile blank no-top-padding">
+                <div>
+                  <h2>Contact Brent</h2>
+                  <div className="two-column-grid">
+                    <button className="button">Email</button>
+                    <button className="button">Phone</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
 
-      <div className="tile blank">
-        <h1>About Brent</h1>
-        <h2>More Information</h2>
-      </div>
-      <div className="tile full">
-        <h2>My Goal</h2>
-        <h1>
-          I want to build skills in{" "}
-          <span className="txt-impact">Leadership</span>, in the field of{" "}
-          <span className="txt-impact">Teaching</span>.
-        </h1>
-        <p>
-          Here is a bit about why I'm striving towards this goal. Lorem Ipsum is
-          simply dummy text of the printing and typesetting industry.
-        </p>
+        <div className="tile blank">
+          <h1>Skillpod Portfolio</h1>
+          <h2>A collection of Brent's Portfolio Pieces</h2>
+        </div>
+        <div className="portfolio-pieces">
+          {pieces.map(piece => (
+            <PortfolioThumbs piece={piece} />
+          ))}
+        </div>
 
-        <h2>What I can offer a company is</h2>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </p>
-      </div>
-    </main>
+        <CurrentPortfolioPiece piece={pieces[0]} />
+
+        <div className="tile blank">
+          <h1>About Brent</h1>
+          <h2>More Information</h2>
+        </div>
+        <div className="tile full">
+          <h2>My Goal</h2>
+          <h1>
+            I want to build skills in{" "}
+            <span className="txt-impact">Leadership</span>, in the field of{" "}
+            <span className="txt-impact">Teaching</span>.
+          </h1>
+          <p>
+            Here is a bit about why I'm striving towards this goal. Lorem Ipsum is
+            simply dummy text of the printing and typesetting industry.
+          </p>
+
+          <h2>What I can offer a company is</h2>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text ever
+            since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only
+            five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s with
+            the release of Letraset sheets containing Lorem Ipsum passages, and
+            more recently with desktop publishing software like Aldus PageMaker
+            including versions of Lorem Ipsum.
+          </p>
+        </div>
+      </main>
+    </>
   );
 }
 

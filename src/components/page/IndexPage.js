@@ -1,5 +1,4 @@
 import React from "react";
-import IndexGoalForm from "outer/IndexGoalForm";
 import { Link } from "react-router-dom";
 
 import hero1 from "art/web-art-1.png";
@@ -7,12 +6,10 @@ import hero2 from "art/web-art-2.png";
 import hero3 from "art/web-art-3.png";
 import logo from "logos/skillpod-logo.svg";
 
-const { useState } = React;
-
 const IndexPage = props => {
 
   return (
-    <main className="layout intro">
+    <main className="layout intro no-toolbar">
       <div className="tile blank more-tile-padding">
         <div className="indexLarge">
           <div className="logo">
@@ -55,7 +52,7 @@ const IndexPage = props => {
       </div>
     </main>
   );
-}
 
+}
 
 export default IndexPage;

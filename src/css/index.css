@@ -2289,7 +2289,7 @@ button, .button, .buttonAlt, .button-square {
     .tool a:hover {
       text-decoration: underline;
     }
-    .tool.current a:hover {
+    .tool.current a:hover, .tool a.current:hover {
       text-decoration: unset;
     }
     .tool.more {
@@ -2301,7 +2301,7 @@ button, .button, .buttonAlt, .button-square {
       display: block;
       margin: 1em 0;
     }
-    .tool.current a {
+    .tool.current a, .tool a.current {
       background-color: #7D94F7;
       border-radius: 0 0.5em 0.5em 0;
     }

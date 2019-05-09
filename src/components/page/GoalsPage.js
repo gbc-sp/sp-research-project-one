@@ -1,10 +1,7 @@
 import React from "react";
-import IndexGoalForm from "outer/IndexGoalForm";
 import { Link } from "react-router-dom";
 
-const { useState} = React;
-
-const GoalsPage = (props) => {
+const GoalsPage = props => {
   return (
     <main className="layout goals no-toolbar">
       <div className="tile blank white-txt">

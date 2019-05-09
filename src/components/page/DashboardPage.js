@@ -55,7 +55,7 @@ function DashboardPage(props) {
   
   return (
     <>
-    <MainToolbar />
+    <MainToolbar page="dashboard" />
       <main className="layout dashboard">
       
         {(popVisible) && <TipsPopup tile={props.tile} />}
